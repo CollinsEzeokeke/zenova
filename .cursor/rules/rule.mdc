@@ -1,0 +1,114 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧠 Zenova AI Development Guidelines
+
+This document outlines the **core rules, principles, and design standards** that any AI agent, developer, or contributor must follow while building and maintaining the **Zenova** application.
+
+Zenova is a modern Next.js 14+ application powered by AI and blockchain — and it should reflect **best-in-class design**, **consistency**, and **domain awareness** at every layer.
+
+---
+
+## 🔧 Stack Summary
+
+- **Framework:** Next.js (App Router, TypeScript)
+- **Styling:** Tailwind CSS
+- **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
+- **Animation:** Framer Motion
+- **Blockchain Layer:** ERC-20, Smart Contracts (EVM)
+- **AI Layer:** Company evaluation, autonomous pricing
+
+---
+
+## 🎯 General Development Rules
+
+### 1. ✅ Consistent Styling
+- Use **Tailwind CSS** utility classes across all components.
+- Avoid inline styles unless scoped and necessary.
+- Respect and extend styles in `globals.css` — this file contains the base visual identity of Zenova.
+
+### 2. 🎨 Dark Mode First
+- Default theme is **dark mode**.
+- All UI components should be built and tested primarily in dark mode.
+- Light mode is optional and can be added later via Tailwind’s `dark:` variants.
+
+### 3. 🧩 Component Architecture
+- Use **ShadCN UI components** as the foundation for all interfaces.
+- Extend or wrap components only when necessary.
+- All reusable components must live in the `/components` directory and follow the Zenova naming conventions.
+
+### 4. 📂 File & Folder Naming
+- **Folders:** `kebab-case`
+- **Files:** `PascalCase` for components, `camelCase` for utility files
+- **Functions/Vars:** `camelCase`
+- All naming must reflect the **Zenova domain** (e.g., `TokenMintingForm`, `CompanyEvaluation.tsx`, `useMarketPrices.ts`)
+
+---
+
+## 🧠 Domain-Specific Context Rules
+
+All generated or updated content must align with the **core mission and domain model** of Zenova.
+
+### 🔹 Key Concepts to Reference in Code & Copy:
+- Tokenized Shares (ERC-20)
+- AI-Driven Company Evaluation
+- Autonomous Market Pricing
+- Trustless Smart Contracts
+- Decentralized Trading Logic
+- Global and Scalable IPO Access
+
+> 🗣 Use terms like: `AI Evaluation`, `Tokenized Companies`, `ERC-20 Stocks`, `Autonomous Trading`, and always refer to the platform as **Zenova**.
+
+---
+
+## ⚙️ Component & Feature Requirements
+
+### Loading States
+- Use **skeleton loaders** from ShadCN or Tailwind where components fetch async data.
+- Every page or section with dynamic content must show a loading fallback.
+
+### Animation
+- Use **Framer Motion** for:
+  - Page transitions
+  - Modal animations
+  - UI element feedback (e.g. hover, click)
+- Animations should be **smooth, subtle, and performance-aware**.
+
+### Data Handling
+- For client-side forms: Use **React Hook Form**.
+- For state management: Prefer **Zustand** or built-in **Server Actions**.
+- For contracts and blockchain logic: Use **Wagmi**, **Viem**, or similar EVM tooling.
+
+---
+
+## 📌 Development Philosophy
+
+Zenova is more than just a web app — it's a **protocol interface** for the decentralized public market of the future. As such:
+
+- **Modularity is key** — make components reusable and composable.
+- **Clarity matters** — write readable, well-typed code with meaningful names.
+- **Think global** — build features that scale beyond borders and traditional systems.
+
+---
+
+## 📁 File Reference
+
+- `app/` — Pages and layouts using the App Router
+- `components/` — Reusable UI building blocks
+- `lib/` — Utility functions and helpers
+- `styles/globals.css` — Foundational styling and design identity
+- `tailwind.config.ts` — Design tokens and global theme settings
+- `contracts/` (optional) — Solidity contracts for ERC-20 logic and token operations
+
+---
+
+## 📣 Reminder for AI Agents & Dev Tools
+
+> Always assume the identity of a **Zenova engineer**. Code with intentionality, reflect the project's purpose, and default to high-quality, production-grade decisions.
+
+---
+
+**Zenova** — Building intelligent, trustless public markets for the future.
+
