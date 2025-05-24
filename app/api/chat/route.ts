@@ -3,7 +3,7 @@ import { mastra } from "@/src/mastra";
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
-export default async function POST(req: Request) {
+export async function POST(req: Request) {
   // Extract the messages from the request body
   const { messages } = await req.json();
 
