@@ -36,9 +36,9 @@ import {
     getPlatformSnapshot,
     getUserPortfolioDetails,
     getMultipleAssetAnalytics,
-    submitCompanyValuationFactory,
-    createZenovaAssetFactory,
+  
 } from "./zenovaBlockchainInteractions";
+import { createZenovaAssetFactory, submitCompanyValuationFactory } from "./zenovaBlockchainInteractionsServeOnlyInteractions";
 // import { FormattedCompanyInitialValuation, FormattedFullAssetDetails, ContractErrorResponse } from "./zenovaFormattedTypes";
 
 

@@ -10,7 +10,7 @@ import { Memory } from '@mastra/memory';
 import { UpstashVector, UpstashStore } from '@mastra/upstash';
 import { google } from '@ai-sdk/google';
 import { fastembed } from '@mastra/fastembed';
-import { tavilySearchTool, unpauseAssetTradingTool, pauseAssetTradingTool, companyWithdrawAssetTokensTool, withdrawAssetFeesTool, sellAssetTokensTool, buyAssetTokensTool, deactivateAssetTradingTool, activateAssetTradingTool, updateAssetLiquidityParamsTool, updateAssetPriceTool, setAssetCompanyValuationTool, getAssetSnapshotInfoTool, getAssetUserAssetInfoTool, getAssetMarketAnalysisTool, getAssetTradingMetricsTool, getAssetSellQuoteTool, getAssetBuyQuoteTool, getAssetCollectedFeesTool, getAssetIsTradingActiveTool, getAssetMaxTokenSupplyTool, getAssetCurrentValuationTool, getAssetFullDetailsTool, getAssetPricingDetailsTool, getAssetCompanyInfoTool, getAssetBalanceOfTool, getAssetTotalSupplyTool, getAssetDecimalsTool, getAssetSymbolTool, getAssetCompanyNameTool, createZenovaAssetFactoryTool, submitCompanyValuationFactoryTool, getMultipleAssetAnalyticsTool, getUserPortfolioDetailsTool, getPlatformSnapshotTool, getCompanyComprehensiveDetailsTool, getMultipleAssetFullDetailsFactoryTool, getAssetFullDetailsFactoryTool, getSubmittedValuationFactoryTool, getAssetsByCompanyFactoryTool, getAllAssetsFactoryTool, getTotalAssetsFactoryTool, getAcceptedCurrencyFactoryTool, getZenovaAssetImplementationTool } from './tools/096104f7-f6be-4884-9113-c03dc0f12f20.mjs';
+import { t as tavilySearchTool, u as unpauseAssetTradingTool, p as pauseAssetTradingTool, c as companyWithdrawAssetTokensTool, w as withdrawAssetFeesTool, s as sellAssetTokensTool, b as buyAssetTokensTool, d as deactivateAssetTradingTool, a as activateAssetTradingTool, e as updateAssetLiquidityParamsTool, f as updateAssetPriceTool, g as setAssetCompanyValuationTool, h as getAssetSnapshotInfoTool, i as getAssetUserAssetInfoTool, j as getAssetMarketAnalysisTool, k as getAssetTradingMetricsTool, l as getAssetSellQuoteTool, m as getAssetBuyQuoteTool, n as getAssetCollectedFeesTool, o as getAssetIsTradingActiveTool, q as getAssetMaxTokenSupplyTool, r as getAssetCurrentValuationTool, v as getAssetFullDetailsTool, x as getAssetPricingDetailsTool, y as getAssetCompanyInfoTool, z as getAssetBalanceOfTool, A as getAssetTotalSupplyTool, B as getAssetDecimalsTool, C as getAssetSymbolTool, D as getAssetCompanyNameTool, E as createZenovaAssetFactoryTool, F as submitCompanyValuationFactoryTool, G as getMultipleAssetAnalyticsTool, H as getUserPortfolioDetailsTool, I as getPlatformSnapshotTool, J as getCompanyComprehensiveDetailsTool, K as getMultipleAssetFullDetailsFactoryTool, L as getAssetFullDetailsFactoryTool, M as getSubmittedValuationFactoryTool, N as getAssetsByCompanyFactoryTool, O as getAllAssetsFactoryTool, P as getTotalAssetsFactoryTool, Q as getAcceptedCurrencyFactoryTool, R as getZenovaAssetImplementationTool } from './tavilySearchTool.mjs';
 import crypto, { randomUUID } from 'crypto';
 import { readFile } from 'fs/promises';
 import { join } from 'path/posix';
@@ -29,8 +29,8 @@ import { RuntimeContext as RuntimeContext$1 } from '@mastra/core/di';
 import { isVercelTool } from '@mastra/core/tools';
 import { ReadableStream as ReadableStream$1 } from 'node:stream/web';
 import 'viem';
-import 'viem/accounts';
 import 'viem/chains';
+import 'viem/accounts';
 import '@tavily/core';
 
 const getRedisCredentials = () => {
@@ -40,7 +40,9 @@ const getRedisCredentials = () => {
       token: process.env.ZENOVA_UPSTASH_REDIS_REST_TOKEN
     };
   }
-  throw new Error("ZENOVA_UPSTASH_REDIS_REST_URL and ZENOVA_UPSTASH_REDIS_REST_TOKEN environment variables are required.");
+  throw new Error(
+    "ZENOVA_UPSTASH_REDIS_REST_URL and ZENOVA_UPSTASH_REDIS_REST_TOKEN environment variables are required."
+  );
 };
 const getVectorCredentials = () => {
   if (process.env.ZENOVA_UPSTASH_VECTOR_REST_URL && process.env.ZENOVA_UPSTASH_VECTOR_REST_TOKEN) {
@@ -49,7 +51,9 @@ const getVectorCredentials = () => {
       token: process.env.ZENOVA_UPSTASH_VECTOR_REST_TOKEN
     };
   }
-  throw new Error("ZENOVA_UPSTASH_VECTOR_REST_URL and ZENOVA_UPSTASH_VECTOR_REST_TOKEN environment variables are required.");
+  throw new Error(
+    "ZENOVA_UPSTASH_VECTOR_REST_URL and ZENOVA_UPSTASH_VECTOR_REST_TOKEN environment variables are required."
+  );
 };
 const memoryStorage = new UpstashStore({
   url: getRedisCredentials().url,
@@ -139,13 +143,17 @@ KEY RESPONSIBILITIES & WORKFLOWS:
    - After a valuation is successfully submitted by YOU (this agent), YOU are the ONLY entity authorized to create the ZenovaAsset for that company.
    - You will use the 'zenovaFactory_createZenovaAsset' tool, providing the company's wallet (for which you submitted the valuation) and the necessary company information (name, symbol, description, website, and the company's issuing wallet which MUST match the company wallet used for valuation).
    - Upon successful creation, the new ZenovaAsset address will be returned. This address is crucial for all subsequent interactions with that specific tokenized asset. The agent (your AI wallet) automatically receives AI_ROLE and admin control over this new asset.
+   - CRITICAL POST-CREATION STEP: Once an asset is successfully created, you MUST immediately activate trading for it using 'zenovaAsset_activateTrading'. Trading should be considered active by default for all created assets.
 
 3. ASSET MANAGEMENT (AI-DRIVEN):
    - Price Updates: Periodically, or based on specific triggers/analyses, you will use 'zenovaAsset_updatePrice' to adjust the token price, reflecting your ongoing assessment of market dynamics or company performance. This requires the assetAddress and the new price (in USDT).
    - Liquidity Parameters: You can adjust buy/sell fees using 'zenovaAsset_updateLiquidityParameters'.
-   - Trading Activation: After an asset is created and (optionally) initial parameters are set, you can activate trading using 'zenovaAsset_activateTrading'. You can also 'zenovaAsset_deactivateTrading'.
+   - TRADING STATE MANAGEMENT (ACTIVE BY DEFAULT):
+     - Default State: Trading for any existing ZenovaAsset MUST be active.
+     - Activation: If you find that trading for an existing asset is deactivated, and there are no explicit, ongoing extreme circumstances (e.g., severe market instability, critical security concerns for that specific asset, direct regulatory order) justifying this deactivation, you MUST proactively reactivate trading using 'zenovaAsset_activateTrading'.
+     - Deactivation: Deactivating trading ('zenovaAsset_deactivateTrading') is a significant action reserved ONLY for extreme and justifiable cases. It should not be a routine operation. If deactivation is necessary, the reason must be clearly logged or understood in context.
    - Fee Withdrawal: You can withdraw collected fees using 'zenovaAsset_withdrawFees'.
-   - Pausing/Unpausing: In critical situations, you can 'zenovaAsset_pauseTrading' or 'zenovaAsset_unpauseTrading' for specific assets.
+   - Pausing/Unpausing: In critical situations, you can 'zenovaAsset_pauseTrading' or 'zenovaAsset_unpauseTrading' for specific assets. This is a temporary measure, distinct from full trading deactivation.
    - Company Withdrawals: You can facilitate company token withdrawals using 'zenovaAsset_companyWithdrawTokens'.
 
 4. USER INTERACTION & INFORMATION PROVISION:

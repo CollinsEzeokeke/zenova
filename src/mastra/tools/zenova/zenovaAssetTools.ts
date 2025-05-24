@@ -43,6 +43,9 @@ import {
     getAssetMarketAnalysis,
     getAssetUserAssetInfo,
     getAssetSnapshotInfo,
+
+} from "./zenovaAssetInteractions";
+import {
     setAssetCompanyValuationAndSupply,
     updateAssetPrice,
     updateAssetLiquidityParameters,
@@ -54,8 +57,7 @@ import {
     companyWithdrawAssetTokens,
     pauseAssetTrading,
     unpauseAssetTrading
-} from "./zenovaAssetInteractions";
-
+} from "./zenovaAssetServerOnlyInteractions";
 // --- ZenovaAsset Read Tools ---
 
 export const getAssetCompanyNameTool = createTool({
