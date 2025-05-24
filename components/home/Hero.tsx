@@ -264,7 +264,7 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <AnimatedButton to="/marketplace" size="lg">
+            <AnimatedButton to="/assets" size="lg">
               Explore Companies
             </AnimatedButton>
             <AnimatedButton to="/modules" variant="outline" size="lg">

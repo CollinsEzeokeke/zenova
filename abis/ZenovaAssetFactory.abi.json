@@ -1,0 +1,1565 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_assetImplementation",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_acceptedCurrencyAddr",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "AI_ROLE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "DEFAULT_ADMIN_ROLE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "acceptedCurrency",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IERC20"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "allZenovaAssets",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "assetInitialValuations",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "companyWallet",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "valuation",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "initialPricePerToken",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "evaluatorAI",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "assessmentTimestamp",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "exists",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "companyToAssets",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "createZenovaAsset",
+    "inputs": [
+      {
+        "name": "_companyWallet",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_companyInfo",
+        "type": "tuple",
+        "internalType": "struct ZenovaAsset.CompanyInfo",
+        "components": [
+          {
+            "name": "name",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "website",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "issuingCompanyWallet",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "assetAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getAllAssets",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getAssetFullDetails",
+    "inputs": [
+      {
+        "name": "_assetAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct ZenovaAsset.FullAssetDetails",
+        "components": [
+          {
+            "name": "assetAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "companyDetails",
+            "type": "tuple",
+            "internalType": "struct ZenovaAsset.CompanyInfo",
+            "components": [
+              {
+                "name": "name",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "symbol",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "website",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "issuingCompanyWallet",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "pricingDetails",
+            "type": "tuple",
+            "internalType": "struct ZenovaAsset.AssetPricingDetails",
+            "components": [
+              {
+                "name": "currentPricePerToken",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "buyFeeBPS",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "sellFeeBPS",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "marketCap",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "lastPriceUpdateTimestamp",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "acceptedCurrency",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "currentValuation",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "maxTokenSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "currentTotalSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isTradingActive",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "admin",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "priceAI",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "liquidityManager",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getAssetsByCompany",
+    "inputs": [
+      {
+        "name": "_companyWallet",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getCompanyComprehensiveDetails",
+    "inputs": [
+      {
+        "name": "_companyWallet",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "details",
+        "type": "tuple",
+        "internalType": "struct ZenovaAssetFactory.CompanyComprehensiveDetails",
+        "components": [
+          {
+            "name": "companyWallet",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "pendingValuation",
+            "type": "tuple",
+            "internalType": "struct ZenovaAssetFactory.CompanyInitialValuation",
+            "components": [
+              {
+                "name": "companyWallet",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "valuation",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "initialPricePerToken",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "evaluatorAI",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "assessmentTimestamp",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "exists",
+                "type": "bool",
+                "internalType": "bool"
+              }
+            ]
+          },
+          {
+            "name": "assetAddresses",
+            "type": "address[]",
+            "internalType": "address[]"
+          },
+          {
+            "name": "assetDetails",
+            "type": "tuple[]",
+            "internalType": "struct ZenovaAsset.FullAssetDetails[]",
+            "components": [
+              {
+                "name": "assetAddress",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "companyDetails",
+                "type": "tuple",
+                "internalType": "struct ZenovaAsset.CompanyInfo",
+                "components": [
+                  {
+                    "name": "name",
+                    "type": "string",
+                    "internalType": "string"
+                  },
+                  {
+                    "name": "symbol",
+                    "type": "string",
+                    "internalType": "string"
+                  },
+                  {
+                    "name": "description",
+                    "type": "string",
+                    "internalType": "string"
+                  },
+                  {
+                    "name": "website",
+                    "type": "string",
+                    "internalType": "string"
+                  },
+                  {
+                    "name": "issuingCompanyWallet",
+                    "type": "address",
+                    "internalType": "address"
+                  }
+                ]
+              },
+              {
+                "name": "pricingDetails",
+                "type": "tuple",
+                "internalType": "struct ZenovaAsset.AssetPricingDetails",
+                "components": [
+                  {
+                    "name": "currentPricePerToken",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "buyFeeBPS",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "sellFeeBPS",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "marketCap",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "lastPriceUpdateTimestamp",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  },
+                  {
+                    "name": "acceptedCurrency",
+                    "type": "address",
+                    "internalType": "address"
+                  }
+                ]
+              },
+              {
+                "name": "currentValuation",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "maxTokenSupply",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "currentTotalSupply",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "isTradingActive",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "admin",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "priceAI",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "liquidityManager",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "totalMarketCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalTokensIssued",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalTradingVolume",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "hasActiveAssets",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMultipleAssetAnalytics",
+    "inputs": [
+      {
+        "name": "_assetAddresses",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "assetDetails",
+        "type": "tuple[]",
+        "internalType": "struct ZenovaAsset.FullAssetDetails[]",
+        "components": [
+          {
+            "name": "assetAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "companyDetails",
+            "type": "tuple",
+            "internalType": "struct ZenovaAsset.CompanyInfo",
+            "components": [
+              {
+                "name": "name",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "symbol",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "website",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "issuingCompanyWallet",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "pricingDetails",
+            "type": "tuple",
+            "internalType": "struct ZenovaAsset.AssetPricingDetails",
+            "components": [
+              {
+                "name": "currentPricePerToken",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "buyFeeBPS",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "sellFeeBPS",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "marketCap",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "lastPriceUpdateTimestamp",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "acceptedCurrency",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "currentValuation",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "maxTokenSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "currentTotalSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isTradingActive",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "admin",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "priceAI",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "liquidityManager",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      },
+      {
+        "name": "tradingMetrics",
+        "type": "tuple[]",
+        "internalType": "struct ZenovaAsset.TradingMetrics[]",
+        "components": [
+          {
+            "name": "totalVolumeTraded",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalTokensTraded",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalBuyTransactions",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalSellTransactions",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalFeesCollected",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "averageTradeSize",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "lastTradeTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "priceVolatility",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "marketAnalysis",
+        "type": "tuple[]",
+        "internalType": "struct ZenovaAsset.MarketAnalysis[]",
+        "components": [
+          {
+            "name": "currentMarketCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "fullyDilutedMarketCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "circulationRatio",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "liquidityRatio",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "priceToValuationRatio",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isOvervalued",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "isUndervalued",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "timeSinceLastPriceUpdate",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMultipleAssetFullDetails",
+    "inputs": [
+      {
+        "name": "_assetAddresses",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ZenovaAsset.FullAssetDetails[]",
+        "components": [
+          {
+            "name": "assetAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "companyDetails",
+            "type": "tuple",
+            "internalType": "struct ZenovaAsset.CompanyInfo",
+            "components": [
+              {
+                "name": "name",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "symbol",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "website",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "issuingCompanyWallet",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "pricingDetails",
+            "type": "tuple",
+            "internalType": "struct ZenovaAsset.AssetPricingDetails",
+            "components": [
+              {
+                "name": "currentPricePerToken",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "buyFeeBPS",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "sellFeeBPS",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "marketCap",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "lastPriceUpdateTimestamp",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "acceptedCurrency",
+                "type": "address",
+                "internalType": "address"
+              }
+            ]
+          },
+          {
+            "name": "currentValuation",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "maxTokenSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "currentTotalSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "isTradingActive",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "admin",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "priceAI",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "liquidityManager",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getPlatformSnapshot",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "snapshot",
+        "type": "tuple",
+        "internalType": "struct ZenovaAssetFactory.PlatformSnapshot",
+        "components": [
+          {
+            "name": "totalAssetsCreated",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalCompaniesOnboarded",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalActiveAssets",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalMarketCapitalization",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalTradingVolume",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalFeesCollected",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "averageAssetMarketCap",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalTokensInCirculation",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalMaxTokenSupply",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "largestAssetByMarketCap",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "mostActiveAssetByVolume",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getRoleAdmin",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getSubmittedValuation",
+    "inputs": [
+      {
+        "name": "_companyWallet",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct ZenovaAssetFactory.CompanyInitialValuation",
+        "components": [
+          {
+            "name": "companyWallet",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "valuation",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "initialPricePerToken",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "evaluatorAI",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "assessmentTimestamp",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "exists",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getUserPortfolioDetails",
+    "inputs": [
+      {
+        "name": "_user",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "portfolio",
+        "type": "tuple",
+        "internalType": "struct ZenovaAssetFactory.UserPortfolioDetails",
+        "components": [
+          {
+            "name": "userAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "totalPortfolioValue",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalInvestedAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalRealizedPnL",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalUnrealizedPnL",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalFeesPaid",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "numberOfAssetsHeld",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "heldAssetAddresses",
+            "type": "address[]",
+            "internalType": "address[]"
+          },
+          {
+            "name": "assetHoldings",
+            "type": "tuple[]",
+            "internalType": "struct ZenovaAsset.UserAssetInfo[]",
+            "components": [
+              {
+                "name": "tokenBalance",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "tokenBalanceValue",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "percentageOfSupply",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "totalPurchaseValue",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "totalSaleValue",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "totalFeesPaid",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "lastTradeTimestamp",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "hasTraded",
+                "type": "bool",
+                "internalType": "bool"
+              },
+              {
+                "name": "realizedPnL",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "unrealizedPnL",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "isActiveTrader",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "grantRole",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "hasRole",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "renounceRole",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "callerConfirmation",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "revokeRole",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "submitCompanyValuation",
+    "inputs": [
+      {
+        "name": "_companyWallet",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_valuation",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_initialPricePerToken",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "supportsInterface",
+    "inputs": [
+      {
+        "name": "interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalAssets",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "zenovaAssetImplementation",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "CompanyValuationSubmitted",
+    "inputs": [
+      {
+        "name": "companyWallet",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "valuation",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "initialPricePerToken",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "evaluatorAI",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RoleAdminChanged",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "previousAdminRole",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "newAdminRole",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RoleGranted",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "account",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RoleRevoked",
+    "inputs": [
+      {
+        "name": "role",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "account",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ZenovaAssetCreated",
+    "inputs": [
+      {
+        "name": "assetAddress",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "companyWallet",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "companyName",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "name": "creator",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "initialValuation",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "maxTokenSupply",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "AccessControlBadConfirmation",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "AccessControlUnauthorizedAccount",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "neededRole",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "Factory__AssetCreationFailed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__ImplementationNotSet",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__InvalidAmount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__NotAI",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__NotAuthorized",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__NotCompanyWallet",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__PriceCannotBeZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__ValuationAlreadyExists",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__ValuationNotFound",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Factory__ZeroAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "FailedDeployment",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InsufficientBalance",
+    "inputs": [
+      {
+        "name": "balance",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "needed",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  }
+]

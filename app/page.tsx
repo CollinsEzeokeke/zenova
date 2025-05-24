@@ -26,7 +26,7 @@ export default function Home() {
               Trusted by Companies & Investors
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              See how businesses and investors are leveraging Zenova&apos;s tokenized stock platform
+              See how businesses and investors are leveraging Zenova's tokenized stock platform
               for transparent, efficient capital markets.
             </p>
           </motion.div>
@@ -111,7 +111,7 @@ export default function Home() {
               <AnimatedButton to="/docs" size="lg">
                 How It Works
               </AnimatedButton>
-              <AnimatedButton to="/build" variant="outline" size="lg">
+              <AnimatedButton to="/assets" variant="outline" size="lg">
                 Start Investing
               </AnimatedButton>
             </div>

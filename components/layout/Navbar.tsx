@@ -7,12 +7,12 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { text: "Home", path: "/" },
-  { text: "Marketplace", path: "/marketplace" },
-  { text: "Tokenized Companies", path: "/modules" },
-  { text: "About", path: "/about" }
+  { text: "Assets", path: "/assets" },
+  { text: "Portfolio", path: "/portfolio" },
+  { text: "Platform Stats", path: "/platform-stats" }
 ];
 
-const Navbar = () => {
+export default function Navbar () {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -66,10 +66,10 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link
-                href="/build"
+                href="/onboarding"
                 className="bg-metamesh-yellow text-metamesh-dark hover:bg-metamesh-yellow/90 px-4 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Start Investing
+                AI Onboarding
               </Link>
             </div>
           </div>
@@ -111,11 +111,11 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              href="/build"
+              href="/onboarding"
               className="bg-metamesh-yellow text-metamesh-dark hover:bg-metamesh-yellow/90 block px-3 py-2 rounded-md text-base font-medium mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Start Investing
+              AI Onboarding
             </Link>
           </div>
         </motion.div>
@@ -124,4 +124,3 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
