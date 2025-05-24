@@ -347,3 +347,56 @@ const AssetsPage = () => {
 };
 
 export default AssetsPage;
+
+
+// src/pages/api/chat route.ts 
+// 
+// import { google } from "@ai-sdk/google";
+// import { frontendTools } from "@assistant-ui/react-ai-sdk";
+// import { streamText } from "ai";
+
+// export const runtime = "edge";
+// export const maxDuration = 30;
+
+// export default async function POST(req: Request) {
+//   const { messages, system, tools } = await req.json();
+
+//   const result = streamText({
+//     model: google("gemini-1.5-flash"),
+//     messages,
+//     toolCallStreaming: true,
+//     system,
+//     tools: {
+//       ...frontendTools(tools),
+//       // add backend tools here
+//     },
+//   });
+
+//   return result.toDataStreamResponse();
+// }
+
+// 
+// 
+// src/pages/assistant.tsx  file :
+
+// "use client";
+
+// import { AssistantRuntimeProvider } from "@assistant-ui/react";
+// import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
+// import { Thread } from "@/components/thread";
+// import { ThreadList } from "@/components/thread-list";
+
+// export const Assistant = () => {
+//   const runtime = useChatRuntime({
+//     api: "/api/chat",
+//   });
+
+//   return (
+//     <AssistantRuntimeProvider runtime={runtime}>
+//       <div className="grid h-dvh grid-cols-[200px_1fr] gap-x-2 px-4 py-4">
+//         <ThreadList />
+//         <Thread />
+//       </div>
+//     </AssistantRuntimeProvider>
+//   );
+// };
