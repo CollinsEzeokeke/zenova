@@ -1,5 +1,7 @@
 import { publicClient, aiWalletClient } from "../../../../viemConfig";
-import { usdtMockConfig, zenovaAssetFactoryConfig } from "@/generated";
+import { 
+    // usdtMockConfig,
+    zenovaAssetFactoryConfig } from "@/generated";
 import { Hex, getAddress, formatUnits as viemFormatUnits, parseUnits, BaseError, decodeEventLog, getAbiItem } from "viem";
 import {
     FormattedFullAssetDetails,
@@ -541,6 +543,7 @@ export async function createZenovaAssetFactory(
                         topics: log.topics
                     });
                     if (decodedEvent.eventName === 'ZenovaAssetCreated') {
+                        // @ts-ignore
                         newAssetAddress = formatAddress((decodedEvent.args as any).newAssetAddress as Hex);
                         break;
                     }
