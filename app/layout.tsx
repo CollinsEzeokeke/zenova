@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Provider from "@/lib/provider";
+import '@rainbow-me/rainbowkit/styles.css';
 
 export const metadata: Metadata = {
   title: "Zenova - AI-Powered Tokenized Stock Platform",

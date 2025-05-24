@@ -166,8 +166,7 @@ export type SolidityMultipleAssetAnalytics = readonly [
 // From ZenovaAsset.sol
 // This is an alias for IZenovaAsset.CompanyInfo and is the same as CompanyInfo above.
 // Use CompanyInfo for clarity when it refers to the specific struct for createZenovaAsset's argument.
-// @ts-ignore
-export interface SolidityCompanyInfo extends CompanyInfo {}
+export type SolidityCompanyInfo = CompanyInfo;
 
 export interface SolidityAssetPricingDetails {
     currentPricePerToken: bigint;

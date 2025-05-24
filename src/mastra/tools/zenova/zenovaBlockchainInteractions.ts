@@ -39,6 +39,17 @@ function isValidAddress(address: string): boolean {
     }
 }
 
+// Define the expected arguments for the ZenovaAssetCreated event
+interface ZenovaAssetCreatedEventArgs {
+    assetAddress: Hex;
+    companyWallet: Hex;
+    companyName: string;
+    creator: Hex;
+    initialValuation: bigint;
+    maxTokenSupply: bigint;
+    // Add other event parameters if they exist and are needed
+}
+
 // --- Factory Getter Functions (Error handling updated) ---
 
 export async function getZenovaAssetImplementation(): Promise<Hex | ContractErrorResponse> {
@@ -543,8 +554,9 @@ export async function createZenovaAssetFactory(
                         topics: log.topics
                     });
                     if (decodedEvent.eventName === 'ZenovaAssetCreated') {
-                        // @ts-ignore
-                        newAssetAddress = formatAddress((decodedEvent.args as any).newAssetAddress as Hex);
+                        // Use the specific event args type for casting
+                        const eventArgs = decodedEvent.args as ZenovaAssetCreatedEventArgs;
+                        newAssetAddress = formatAddress(eventArgs.assetAddress);
                         break;
                     }
                 } catch (decodeError) {

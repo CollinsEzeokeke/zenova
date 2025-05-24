@@ -2930,7 +2930,8 @@ async function createZenovaAssetFactory(companyWallet, companyInfo) {
             topics: log.topics
           });
           if (decodedEvent.eventName === "ZenovaAssetCreated") {
-            newAssetAddress = formatAddress(decodedEvent.args.newAssetAddress);
+            const eventArgs = decodedEvent.args;
+            newAssetAddress = formatAddress(eventArgs.assetAddress);
             break;
           }
         } catch (decodeError) {

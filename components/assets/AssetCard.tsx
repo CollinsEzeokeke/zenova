@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { TrendingUp, TrendingDown } from "lucide-react";
 
-interface AssetCardProps {
+export interface AssetCardProps {
   address: string;
   name: string;
   symbol: string;
@@ -11,10 +11,10 @@ interface AssetCardProps {
   change24h: number;
   marketCap: number;
   volume24h: number;
-  tradingStatus: 'active' | 'paused' | 'pending';
+  tradingStatus: "active" | "paused" | "pending";
 }
 
-const AssetCard: React.FC<AssetCardProps> = ({
+export default function AssetCard({
   address,
   name,
   symbol,
@@ -22,10 +22,10 @@ const AssetCard: React.FC<AssetCardProps> = ({
   change24h,
   marketCap,
   volume24h,
-  tradingStatus
-}) => {
+  tradingStatus,
+}: AssetCardProps) {
   const isPositive = change24h >= 0;
-  
+
   const formatNumber = (num: number) => {
     if (num >= 1000000) {
       return `$${(num / 1000000).toFixed(1)}M`;
@@ -52,15 +52,22 @@ const AssetCard: React.FC<AssetCardProps> = ({
       >
         {/* Glow effect on hover */}
         <div className="absolute inset-0 bg-gradient-to-r from-metamesh-yellow/0 via-metamesh-yellow/5 to-metamesh-yellow/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
+
         {/* Status indicator */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center space-x-2">
-            <div className={`h-2 w-2 rounded-full ${
-              tradingStatus === 'active' ? 'bg-green-400' : 
-              tradingStatus === 'paused' ? 'bg-yellow-400' : 'bg-gray-400'
-            }`} />
-            <span className="text-xs text-gray-400 uppercase tracking-wide">{tradingStatus}</span>
+            <div
+              className={`h-2 w-2 rounded-full ${
+                tradingStatus === "active"
+                  ? "bg-green-400"
+                  : tradingStatus === "paused"
+                  ? "bg-yellow-400"
+                  : "bg-gray-400"
+              }`}
+            />
+            <span className="text-xs text-gray-400 uppercase tracking-wide">
+              {tradingStatus}
+            </span>
           </div>
           <div className="text-xs text-gray-500 font-mono">
             {address.slice(0, 6)}...{address.slice(-4)}
@@ -78,15 +85,26 @@ const AssetCard: React.FC<AssetCardProps> = ({
         {/* Price and change */}
         <div className="flex items-center justify-between mb-4">
           <div>
-            <div className="text-2xl font-bold text-white">${price.toFixed(2)}</div>
-            <div className={`flex items-center space-x-1 text-sm ${
-              isPositive ? 'text-green-400' : 'text-red-400'
-            }`}>
-              {isPositive ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
-              <span>{isPositive ? '+' : ''}{change24h.toFixed(2)}%</span>
+            <div className="text-2xl font-bold text-white">
+              ${price.toFixed(2)}
+            </div>
+            <div
+              className={`flex items-center space-x-1 text-sm ${
+                isPositive ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {isPositive ? (
+                <TrendingUp className="h-4 w-4" />
+              ) : (
+                <TrendingDown className="h-4 w-4" />
+              )}
+              <span>
+                {isPositive ? "+" : ""}
+                {change24h.toFixed(2)}%
+              </span>
             </div>
           </div>
-          
+
           {/* Mini sparkline */}
           <div className="w-16 h-8">
             <svg viewBox="0 0 80 32" className="w-full h-full">
@@ -94,9 +112,14 @@ const AssetCard: React.FC<AssetCardProps> = ({
                 fill="none"
                 stroke={isPositive ? "#10b981" : "#ef4444"}
                 strokeWidth="1.5"
-                points={sparklineData.map((point, index) => 
-                  `${(index / (sparklineData.length - 1)) * 80},${32 - (point / 100) * 32}`
-                ).join(' ')}
+                points={sparklineData
+                  .map(
+                    (point, index) =>
+                      `${(index / (sparklineData.length - 1)) * 80},${
+                        32 - (point / 100) * 32
+                      }`
+                  )
+                  .join(" ")}
               />
             </svg>
           </div>
@@ -122,6 +145,4 @@ const AssetCard: React.FC<AssetCardProps> = ({
       </motion.div>
     </Link>
   );
-};
-
-export default AssetCard;
+}

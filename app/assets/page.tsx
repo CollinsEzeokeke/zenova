@@ -13,35 +13,49 @@ import {
   useContractReads } from 'wagmi';
 import { formatUnits } from 'viem';
 
-// Define the Asset type based on AssetCard props and contract data
+// Matches AssetCardProps for direct compatibility
 interface Asset {
   address: `0x${string}`;
+  // Ensure all fields expected by AssetCard are here or in AssetCardProps
   name: string;
   symbol: string;
   price: number;
-  change24h: number; // as a percentage, e.g., 12.34 for +12.34%
+  change24h: number;
   marketCap: number;
   volume24h: number;
-  tradingStatus: 'active' | 'pending' | 'paused'; // Adjusted to match AssetCardProps expectation
+  tradingStatus: 'active' | 'pending' | 'paused';
 }
 
-// Define a type for the raw data returned by useContractReads for a single asset
-type RawAssetData = [
-  { result?: string; status: string }, // name
-  { result?: string; status: string }, // symbol
-  { result?: bigint; status: string }, // currentPrice
-  { result?: bigint; status: string }, // get24hChange
-  { result?: bigint; status: string }, // marketCap
-  { result?: bigint; status: string }, // volume24h
-  { result?: number; status: string }  // tradingStatus (uint8)
+// More precise typing for individual contract read results with allowFailure: true
+type ContractReadResult<TData = unknown> = 
+  | { result: TData; status: 'success'; error?: never }
+  | { result?: undefined; status: 'failure'; error: Error };
+
+// Specific types for each expected result based on ABI
+// These are now effectively unused if SingleAssetRawDataTuple uses unknown
+// type NameResult = ContractReadResult<string>;
+// type SymbolResult = ContractReadResult<string>;
+// type BigIntResult = ContractReadResult<bigint>;
+// type NumberResult = ContractReadResult<number>; 
+
+// This type represents the structure of the slice for one asset from rawAssetsDetails
+// Now uses ContractReadResult<unknown> for broader compatibility
+type SingleAssetRawDataTuple = readonly [
+  ContractReadResult<unknown>, // name
+  ContractReadResult<unknown>, // symbol
+  ContractReadResult<unknown>, // currentPrice
+  ContractReadResult<unknown>, // get24hChange
+  ContractReadResult<unknown>, // marketCap
+  ContractReadResult<unknown>, // volume24h
+  ContractReadResult<unknown>  // tradingStatus (uint8)
 ];
 
 const mapTradingStatus = (status?: number): Asset['tradingStatus'] => {
   switch (status) {
     case 0: return 'pending';
     case 1: return 'active';
-    case 2: return 'pending'; // Changed 'inactive' to 'pending' to align with AssetCard. Consider 'paused' if more appropriate.
-    default: return 'pending'; // Default or if status is undefined
+    case 2: return 'paused'; // Or 'pending' based on AssetCard expectation
+    default: return 'pending';
   }
 };
 
@@ -75,7 +89,7 @@ const AssetsPage = () => {
   }, [assetAddresses]);
 
   // 3. Fetch details for all assets
-  const { data: rawAssetsDetails, isLoading: isLoadingDetails, error: errorDetails } =
+  const { data: dataFromHook, isLoading: isLoadingDetails, error: errorDetails } =
     useContractReads({
       contracts: assetDetailContracts,
       query: {
@@ -84,33 +98,59 @@ const AssetsPage = () => {
       allowFailure: true, // Allows individual calls to fail without failing the whole batch
     });
 
-  // 4. Process and set assets state
-  useEffect(() => {
+  // Explicitly type rawAssetsDetails, casting through unknown
+  const rawAssetsDetails: Array<ContractReadResult<unknown>> | undefined = dataFromHook as unknown as Array<ContractReadResult<unknown>> | undefined;
+
+  // 4. Process raw contract data into Asset[] using useMemo
+  const processedAssets = useMemo((): Asset[] => { // Explicit return type for useMemo
     if (rawAssetsDetails && assetAddresses) {
-      const numPropertiesPerAsset = 7; // name, symbol, price, change24h, marketCap, volume24h, tradingStatus
-      const processedAssets: Asset[] = [];
+      const numPropertiesPerAsset = 7; 
+      const newProcessedAssets: Asset[] = [];
 
       for (let i = 0; i < assetAddresses.length; i++) {
         const address = assetAddresses[i];
-        const assetDataSlice = rawAssetsDetails.slice(
+        const currentSlice = rawAssetsDetails.slice(
           i * numPropertiesPerAsset,
           (i + 1) * numPropertiesPerAsset
-        ) as RawAssetData;
+        );
 
+        if (currentSlice.length !== numPropertiesPerAsset) {
+          console.warn(`Skipping asset ${address} due to unexpected data slice length: ${currentSlice.length}`);
+          continue; 
+        }
+        
+        const assetDataSlice = currentSlice as unknown as SingleAssetRawDataTuple;
+        
+        // Check if all calls for this asset were successful
         if (assetDataSlice.every(d => d.status === 'success')) {
           try {
-            const name = assetDataSlice[0].result as string;
-            const symbol = assetDataSlice[1].result as string;
-            // Assuming 18 decimals for price, marketcap, volume. Adjust if necessary.
-            const price = assetDataSlice[2].result ? parseFloat(formatUnits(assetDataSlice[2].result as bigint, 18)) : 0;
-            // Assuming change24h is int256 representing basis points (e.g., 1234 for 12.34%)
-            const change24h = assetDataSlice[3].result ? Number(assetDataSlice[3].result as bigint) / 100 : 0;
-            const marketCap = assetDataSlice[4].result ? parseFloat(formatUnits(assetDataSlice[4].result as bigint, 18)) : 0;
-            const volume24h = assetDataSlice[5].result ? parseFloat(formatUnits(assetDataSlice[5].result as bigint, 18)) : 0;
-            const tradingStatus = mapTradingStatus(assetDataSlice[6].result as number);
+            const nameResult = assetDataSlice[0];
+            const symbolResult = assetDataSlice[1];
+            const priceRawResult = assetDataSlice[2];
+            const change24hRawResult = assetDataSlice[3];
+            const marketCapRawResult = assetDataSlice[4];
+            const volume24hRawResult = assetDataSlice[5];
+            const tradingStatusRawResult = assetDataSlice[6];
 
-            if (name && symbol) { // Ensure essential data is present
-              processedAssets.push({
+            // All results must be success and have a defined result (now unknown, so cast needed)
+            if (nameResult.status === 'success' && nameResult.result !== undefined &&
+                symbolResult.status === 'success' && symbolResult.result !== undefined &&
+                priceRawResult.status === 'success' && priceRawResult.result !== undefined &&
+                change24hRawResult.status === 'success' && change24hRawResult.result !== undefined &&
+                marketCapRawResult.status === 'success' && marketCapRawResult.result !== undefined &&
+                volume24hRawResult.status === 'success' && volume24hRawResult.result !== undefined &&
+                tradingStatusRawResult.status === 'success' && tradingStatusRawResult.result !== undefined) {
+              
+              // Cast results from unknown to their expected types
+              const name = nameResult.result as string;
+              const symbol = symbolResult.result as string;
+              const price = parseFloat(formatUnits(priceRawResult.result as bigint, 18));
+              const change24h = Number(change24hRawResult.result as bigint) / 100; 
+              const marketCap = parseFloat(formatUnits(marketCapRawResult.result as bigint, 18));
+              const volume24h = parseFloat(formatUnits(volume24hRawResult.result as bigint, 18));
+              const tradingStatus = mapTradingStatus(tradingStatusRawResult.result as number);
+
+              newProcessedAssets.push({
                 address,
                 name,
                 symbol,
@@ -122,15 +162,23 @@ const AssetsPage = () => {
               });
             }
           } catch (e) {
-            console.error("Error processing asset data for address:", address, e);
+            console.error("Error processing successful asset data for address:", address, e);
           }
         } else {
-          console.warn("Failed to fetch some details for asset:", address, assetDataSlice);
+          console.warn(`Failed to fetch some details for asset: ${address}`,
+            assetDataSlice.map((d, index) => d.status === 'failure' ? { propertyIndex: index, error: d.error } : null).filter(Boolean)
+          );
         }
       }
-      setAssets(processedAssets);
+      return newProcessedAssets;
     }
+    return []; // Return empty array if data is not yet available
   }, [rawAssetsDetails, assetAddresses]);
+
+  // 5. Set assets state when processedAssets changes
+  useEffect(() => {
+    setAssets(processedAssets);
+  }, [processedAssets]);
   
   const overallIsLoading = isLoadingAddresses || (!!assetAddresses && assetAddresses.length > 0 && isLoadingDetails);
 
@@ -165,8 +213,9 @@ const AssetsPage = () => {
   ];
 
   if (errorAddresses) return <Layout><div className="text-red-500 text-center py-10">Error fetching asset list: {errorAddresses.message}</div></Layout>;
-  if (errorDetails) return <Layout><div className="text-red-500 text-center py-10">Error fetching asset details: {errorDetails.message}</div></Layout>;
-
+  if (errorDetails && !(!!assetAddresses && assetAddresses.length > 0)) {
+     return <Layout><div className="text-red-500 text-center py-10">Error preparing asset details fetch: {errorDetails.message}</div></Layout>;
+  }
 
   return (
     <Layout>

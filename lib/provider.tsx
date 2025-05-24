@@ -3,7 +3,8 @@
 import { WagmiProvider } from "wagmi";
 import { config } from "./config";
 import { ThemeProvider } from "next-themes";
-import { TenstackProviders } from "./tanstack-providers";
+import { TanstackProviders } from "./tanstack-providers";
+import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +14,19 @@ export default function Provider({ children }: { children: React.ReactNode }) {
         defaultTheme="light"
         enableSystem={false}
       >
-        <TenstackProviders>{children}</TenstackProviders>
+        <TanstackProviders>
+          <RainbowKitProvider
+            theme={darkTheme({
+              accentColor: "#0E76FD",
+              accentColorForeground: "white",
+              borderRadius: "large",
+              fontStack: "system",
+              overlayBlur: "small",
+            })}
+          >
+            {children}
+          </RainbowKitProvider>
+        </TanstackProviders>
       </ThemeProvider>
     </WagmiProvider>
   );

@@ -182,11 +182,11 @@ const Onboarding = () => {
                     <OnboardingProgressTracker 
                       stages={stages}
                       currentStage={currentStage}
-                      onStageChange={(stageIndex) => {
-                        if (stageIndex < currentStage) {
-                            console.log(`User clicked on past stage in tracker: ${stageIndex}. Current AI stage: ${currentStage}.`);
-                        }
-                      }}
+                      // onStageChange={(stageIndex) => {
+                      //   if (stageIndex < currentStage) {
+                      //       console.log(`User clicked on past stage in tracker: ${stageIndex}. Current AI stage: ${currentStage}.`);
+                      //   }
+                      // }}
                     />
                   </div>
 

@@ -5,7 +5,7 @@ import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@ta
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useState } from 'react'
 
-export function TenstackProviders(props: { children: React.ReactNode }) {
+export function TanstackProviders(props: { children: React.ReactNode }) {
     const [queryClient] = useState(
         () =>
             new QueryClient({
