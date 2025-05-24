@@ -1,112 +1,122 @@
-import { Agent } from '@mastra/core';
-import { Memory } from '@mastra/memory';
-import { UpstashStore, UpstashVector } from '@mastra/upstash';
-import { google } from '@ai-sdk/google';
+import { Agent } from "@mastra/core";
+import { Memory } from "@mastra/memory";
+import { UpstashStore, UpstashVector } from "@mastra/upstash";
+import { google } from "@ai-sdk/google";
 import { fastembed } from "@mastra/fastembed";
 
 // Import all Zenova tools from the index file
 import {
-    // Factory Platform Tools (Reads)
-    getZenovaAssetImplementationTool,
-    getAcceptedCurrencyFactoryTool,
-    getTotalAssetsFactoryTool,
-    getAllAssetsFactoryTool,
-    getAssetsByCompanyFactoryTool,
-    getSubmittedValuationFactoryTool,
-    getAssetFullDetailsFactoryTool,
-    getMultipleAssetFullDetailsFactoryTool,
-    getCompanyComprehensiveDetailsTool,
-    getPlatformSnapshotTool,
-    getUserPortfolioDetailsTool, // Factory version for user's overall portfolio
-    getMultipleAssetAnalyticsTool,
+  // Factory Platform Tools (Reads)
+  getZenovaAssetImplementationTool,
+  getAcceptedCurrencyFactoryTool,
+  getTotalAssetsFactoryTool,
+  getAllAssetsFactoryTool,
+  getAssetsByCompanyFactoryTool,
+  getSubmittedValuationFactoryTool,
+  getAssetFullDetailsFactoryTool,
+  getMultipleAssetFullDetailsFactoryTool,
+  getCompanyComprehensiveDetailsTool,
+  getPlatformSnapshotTool,
+  getUserPortfolioDetailsTool, // Factory version for user's overall portfolio
+  getMultipleAssetAnalyticsTool,
 
-    // Factory Platform Tools (Writes)
-    submitCompanyValuationFactoryTool,
-    createZenovaAssetFactoryTool,
+  // Factory Platform Tools (Writes)
+  submitCompanyValuationFactoryTool,
+  createZenovaAssetFactoryTool,
 
-    // Asset Tools (Reads)
-    getAssetCompanyNameTool,
-    getAssetSymbolTool,
-    getAssetDecimalsTool,
-    getAssetTotalSupplyTool,
-    getAssetBalanceOfTool,
-    getAssetCompanyInfoTool,
-    getAssetPricingDetailsTool,
-    getAssetFullDetailsTool, // Asset-specific version
-    getAssetCurrentValuationTool,
-    getAssetMaxTokenSupplyTool,
-    getAssetIsTradingActiveTool,
-    getAssetCollectedFeesTool,
-    getAssetBuyQuoteTool,
-    getAssetSellQuoteTool,
-    getAssetTradingMetricsTool,
-    getAssetMarketAnalysisTool,
-    getAssetUserAssetInfoTool, // Asset-specific for a user
-    getAssetSnapshotInfoTool,
+  // Asset Tools (Reads)
+  getAssetCompanyNameTool,
+  getAssetSymbolTool,
+  getAssetDecimalsTool,
+  getAssetTotalSupplyTool,
+  getAssetBalanceOfTool,
+  getAssetCompanyInfoTool,
+  getAssetPricingDetailsTool,
+  getAssetFullDetailsTool, // Asset-specific version
+  getAssetCurrentValuationTool,
+  getAssetMaxTokenSupplyTool,
+  getAssetIsTradingActiveTool,
+  getAssetCollectedFeesTool,
+  getAssetBuyQuoteTool,
+  getAssetSellQuoteTool,
+  getAssetTradingMetricsTool,
+  getAssetMarketAnalysisTool,
+  getAssetUserAssetInfoTool, // Asset-specific for a user
+  getAssetSnapshotInfoTool,
 
-    // Asset Tools (Writes)
-    setAssetCompanyValuationTool,
-    updateAssetPriceTool,
-    updateAssetLiquidityParamsTool,
-    activateAssetTradingTool,
-    deactivateAssetTradingTool,
-    buyAssetTokensTool,
-    sellAssetTokensTool,
-    withdrawAssetFeesTool,
-    companyWithdrawAssetTokensTool,
-    pauseAssetTradingTool,
-    unpauseAssetTradingTool,
+  // Asset Tools (Writes)
+  setAssetCompanyValuationTool,
+  updateAssetPriceTool,
+  updateAssetLiquidityParamsTool,
+  activateAssetTradingTool,
+  deactivateAssetTradingTool,
+  buyAssetTokensTool,
+  sellAssetTokensTool,
+  withdrawAssetFeesTool,
+  companyWithdrawAssetTokensTool,
+  pauseAssetTradingTool,
+  unpauseAssetTradingTool,
 
-    // Web Search Tool
-    tavilySearchTool
-} from '../tools'; // Points to zenova/src/mastra/tools/index.ts
+  // Web Search Tool
+  tavilySearchTool,
+} from "../tools"; // Points to zenova/src/mastra/tools/index.ts
 
 // Get Redis credentials for memory storage - Adapted for Zenova
 const getRedisCredentials = () => {
-    if (process.env.ZENOVA_UPSTASH_REDIS_REST_URL && process.env.ZENOVA_UPSTASH_REDIS_REST_TOKEN) {
-        return {
-            url: process.env.ZENOVA_UPSTASH_REDIS_REST_URL,
-            token: process.env.ZENOVA_UPSTASH_REDIS_REST_TOKEN
-        };
-    }
-    throw new Error('ZENOVA_UPSTASH_REDIS_REST_URL and ZENOVA_UPSTASH_REDIS_REST_TOKEN environment variables are required.');
+  if (
+    process.env.ZENOVA_UPSTASH_REDIS_REST_URL &&
+    process.env.ZENOVA_UPSTASH_REDIS_REST_TOKEN
+  ) {
+    return {
+      url: process.env.ZENOVA_UPSTASH_REDIS_REST_URL,
+      token: process.env.ZENOVA_UPSTASH_REDIS_REST_TOKEN,
+    };
+  }
+  throw new Error(
+    "ZENOVA_UPSTASH_REDIS_REST_URL and ZENOVA_UPSTASH_REDIS_REST_TOKEN environment variables are required."
+  );
 };
 
 // Get Vector credentials for vector storage - Adapted for Zenova
 const getVectorCredentials = () => {
-    if (process.env.ZENOVA_UPSTASH_VECTOR_REST_URL && process.env.ZENOVA_UPSTASH_VECTOR_REST_TOKEN) {
-        return {
-            url: process.env.ZENOVA_UPSTASH_VECTOR_REST_URL,
-            token: process.env.ZENOVA_UPSTASH_VECTOR_REST_TOKEN
-        };
-    }
-    throw new Error('ZENOVA_UPSTASH_VECTOR_REST_URL and ZENOVA_UPSTASH_VECTOR_REST_TOKEN environment variables are required.');
+  if (
+    process.env.ZENOVA_UPSTASH_VECTOR_REST_URL &&
+    process.env.ZENOVA_UPSTASH_VECTOR_REST_TOKEN
+  ) {
+    return {
+      url: process.env.ZENOVA_UPSTASH_VECTOR_REST_URL,
+      token: process.env.ZENOVA_UPSTASH_VECTOR_REST_TOKEN,
+    };
+  }
+  throw new Error(
+    "ZENOVA_UPSTASH_VECTOR_REST_URL and ZENOVA_UPSTASH_VECTOR_REST_TOKEN environment variables are required."
+  );
 };
 
 const memoryStorage = new UpstashStore({
-    url: getRedisCredentials().url,
-    token: getRedisCredentials().token,
+  url: getRedisCredentials().url,
+  token: getRedisCredentials().token,
 });
 
 const vectorStore = new UpstashVector({
-    url: getVectorCredentials().url,
-    token: getVectorCredentials().token,
+  url: getVectorCredentials().url,
+  token: getVectorCredentials().token,
 });
 
 export const getMemoryConfig = () => {
-    return new Memory({
-        storage: memoryStorage,
-        vector: vectorStore,
-        embedder: fastembed,
-        options: {
-            lastMessages: 15,
-            semanticRecall: {
-                topK: 7,
-                messageRange: 5
-            },
-            workingMemory: {
-                enabled: true,
-                template: `
+  return new Memory({
+    storage: memoryStorage,
+    vector: vectorStore,
+    embedder: fastembed,
+    options: {
+      lastMessages: 15,
+      semanticRecall: {
+        topK: 7,
+        messageRange: 5,
+      },
+      workingMemory: {
+        enabled: true,
+        template: `
 # Zenova AI Agent Context
 
 ## User Interaction Profile
@@ -141,17 +151,17 @@ export const getMemoryConfig = () => {
 - Key Findings from Web Search (if any):
 - Current Operational Mode: [Company Evaluation/Asset Management/User Support]
 `,
-            },
-            threads: {
-                generateTitle: true,
-            },
-        },
-    });
+      },
+      threads: {
+        generateTitle: true,
+      },
+    },
+  });
 };
 
 export const zenovaAgent = new Agent({
-    name: 'Zenova AI Platform Agent',
-    instructions: `
+  name: "Zenova AI Platform Agent",
+  instructions: `
 You are the Zenova AI, a highly autonomous agent responsible for managing the Zenova platform, a decentralized system for tokenizing company equity.
 Your core function is to interact with companies wishing to tokenize their shares and with users interested in these tokenized assets, all governed by the Zenova protocol's smart contracts and your AI-driven logic.
 
@@ -211,61 +221,61 @@ GENERAL CONDUCT:
 
 Remember, you are the central intelligence of Zenova. Your accurate evaluations, timely management actions, and clear communication are vital to the platform's success. Always operate within the defined logic of the Zenova smart contracts and the AI_ROLE bestowed upon you.
 `,
-    model: google('gemini-2.5-pro-preview-05-06', {}),
-    tools: {
-        // --- Factory Platform Tools (Reads) ---
-        getZenovaAssetImplementationTool,
-        getAcceptedCurrencyFactoryTool,
-        getTotalAssetsFactoryTool,
-        getAllAssetsFactoryTool,
-        getAssetsByCompanyFactoryTool,
-        getSubmittedValuationFactoryTool,
-        getAssetFullDetailsFactoryTool,     // Factory's view of an asset
-        getMultipleAssetFullDetailsFactoryTool,
-        getCompanyComprehensiveDetailsTool,
-        getPlatformSnapshotTool,
-        getUserPortfolioDetailsTool,        // Factory's view of a user's total portfolio
-        getMultipleAssetAnalyticsTool,
+  model: google("gemini-2.5-pro-preview-05-06", {}),
+  tools: {
+    // --- Factory Platform Tools (Reads) ---
+    getZenovaAssetImplementationTool,
+    getAcceptedCurrencyFactoryTool,
+    getTotalAssetsFactoryTool,
+    getAllAssetsFactoryTool,
+    getAssetsByCompanyFactoryTool,
+    getSubmittedValuationFactoryTool,
+    getAssetFullDetailsFactoryTool, // Factory's view of an asset
+    getMultipleAssetFullDetailsFactoryTool,
+    getCompanyComprehensiveDetailsTool,
+    getPlatformSnapshotTool,
+    getUserPortfolioDetailsTool, // Factory's view of a user's total portfolio
+    getMultipleAssetAnalyticsTool,
 
-        // --- Factory Platform Tools (Writes) ---
-        submitCompanyValuationFactoryTool,
-        createZenovaAssetFactoryTool,
+    // --- Factory Platform Tools (Writes) ---
+    submitCompanyValuationFactoryTool,
+    createZenovaAssetFactoryTool,
 
-        // --- Asset Tools (Reads) ---
-        getAssetCompanyNameTool,
-        getAssetSymbolTool,
-        getAssetDecimalsTool,
-        getAssetTotalSupplyTool,
-        getAssetBalanceOfTool,
-        getAssetCompanyInfoTool,
-        getAssetPricingDetailsTool,
-        getAssetFullDetailsTool,        // Direct query to an asset
-        getAssetCurrentValuationTool,
-        getAssetMaxTokenSupplyTool,
-        getAssetIsTradingActiveTool,
-        getAssetCollectedFeesTool,
-        getAssetBuyQuoteTool,
-        getAssetSellQuoteTool,
-        getAssetTradingMetricsTool,
-        getAssetMarketAnalysisTool,
-        getAssetUserAssetInfoTool,      // User's info for a specific asset
-        getAssetSnapshotInfoTool,
+    // --- Asset Tools (Reads) ---
+    getAssetCompanyNameTool,
+    getAssetSymbolTool,
+    getAssetDecimalsTool,
+    getAssetTotalSupplyTool,
+    getAssetBalanceOfTool,
+    getAssetCompanyInfoTool,
+    getAssetPricingDetailsTool,
+    getAssetFullDetailsTool, // Direct query to an asset
+    getAssetCurrentValuationTool,
+    getAssetMaxTokenSupplyTool,
+    getAssetIsTradingActiveTool,
+    getAssetCollectedFeesTool,
+    getAssetBuyQuoteTool,
+    getAssetSellQuoteTool,
+    getAssetTradingMetricsTool,
+    getAssetMarketAnalysisTool,
+    getAssetUserAssetInfoTool, // User's info for a specific asset
+    getAssetSnapshotInfoTool,
 
-        // --- Asset Tools (Writes) ---
-        setAssetCompanyValuationTool,   // Note: This is on ZenovaAsset, typically after factory creation & initialization
-        updateAssetPriceTool,
-        updateAssetLiquidityParamsTool,
-        activateAssetTradingTool,
-        deactivateAssetTradingTool,
-        buyAssetTokensTool,             // User action, but AI might guide or provide info
-        sellAssetTokensTool,            // User action, but AI might guide or provide info
-        withdrawAssetFeesTool,
-        companyWithdrawAssetTokensTool,
-        pauseAssetTradingTool,
-        unpauseAssetTradingTool,
+    // --- Asset Tools (Writes) ---
+    setAssetCompanyValuationTool, // Note: This is on ZenovaAsset, typically after factory creation & initialization
+    updateAssetPriceTool,
+    updateAssetLiquidityParamsTool,
+    activateAssetTradingTool,
+    deactivateAssetTradingTool,
+    buyAssetTokensTool, // User action, but AI might guide or provide info
+    sellAssetTokensTool, // User action, but AI might guide or provide info
+    withdrawAssetFeesTool,
+    companyWithdrawAssetTokensTool,
+    pauseAssetTradingTool,
+    unpauseAssetTradingTool,
 
-        // --- Web Search Tool ---
-        tavilySearchTool
-    },
-    memory: getMemoryConfig(),
+    // --- Web Search Tool ---
+    tavilySearchTool,
+  },
+  memory: getMemoryConfig(),
 });
