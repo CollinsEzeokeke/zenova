@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { createTool } from "@mastra/core";
 import {
-    EthereumAddressSchema,
+    // EthereumAddressSchema,
     AssetAddressInputSchema,
     AssetBalanceOfInputSchema,
     CompanyInfoSchema,

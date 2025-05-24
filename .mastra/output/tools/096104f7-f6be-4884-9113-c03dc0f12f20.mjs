@@ -2416,9 +2416,12 @@ function formatTokenAmount(amount, decimals, options) {
   }
   return result;
 }
-const formatUsdtAmount = (amount, options) => formatTokenAmount(amount, USDT_DECIMALS$2, { ...options, currencySymbol: "USDT" });
+const formatUsdtAmount = (amount, options) => formatTokenAmount(amount, USDT_DECIMALS$2, {
+  ...options,
+  currencySymbol: "USDT"
+});
 const formatDefaultTokenAmount = (amount, options) => formatTokenAmount(amount, DEFAULT_TOKEN_DECIMALS$2, options);
-function formatAddress(address, startChars = 6, endChars = 4) {
+function formatAddress(address) {
   return address;
 }
 function formatBpsRate(bps) {
@@ -2428,11 +2431,13 @@ function formatBpsRate(bps) {
   return `${(bpsAsNumber / 100).toFixed(2)}%`;
 }
 function formatTimestamp(timestampSeconds) {
-  if (timestampSeconds === void 0 || timestampSeconds === null || BigInt(timestampSeconds) === BigInt(0)) return "N/A";
+  if (timestampSeconds === void 0 || timestampSeconds === null || BigInt(timestampSeconds) === BigInt(0))
+    return "N/A";
   try {
     const date = new Date(Number(timestampSeconds) * 1e3);
     return date.toLocaleString();
   } catch (e) {
+    console.error("Error formatting timestamp:", e);
     return "Invalid Date";
   }
 }
@@ -2929,6 +2934,7 @@ async function createZenovaAssetFactory(companyWallet, companyInfo) {
             break;
           }
         } catch (decodeError) {
+          console.debug("Failed to decode a log or not the ZenovaAssetCreated event:", decodeError);
         }
       }
       if (newAssetAddress) {
@@ -3110,7 +3116,8 @@ function isValidAddress(address) {
   }
 }
 async function getAssetCompanyName(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3120,12 +3127,15 @@ async function getAssetCompanyName(assetAddress) {
     return data;
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetCompanyName for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetCompanyName for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetSymbol(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3135,12 +3145,15 @@ async function getAssetSymbol(assetAddress) {
     return data;
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetSymbol for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetSymbol for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetDecimals(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3150,12 +3163,15 @@ async function getAssetDecimals(assetAddress) {
     return formatNumber(data);
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetDecimals for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetDecimals for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetTotalSupply(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3165,13 +3181,17 @@ async function getAssetTotalSupply(assetAddress) {
     return formatDefaultTokenAmount(data);
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetTotalSupply for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetTotalSupply for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetBalanceOf(assetAddress, account) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (!isValidAddress(account)) return { error: "Invalid account address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (!isValidAddress(account))
+    return { error: "Invalid account address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3182,12 +3202,15 @@ async function getAssetBalanceOf(assetAddress, account) {
     return formatDefaultTokenAmount(data);
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetBalanceOf for ${assetAddress}, account ${account}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetBalanceOf for ${assetAddress}, account ${account}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetCompanyInfo(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const rawResult = await publicClient.readContract({
       address: assetAddress,
@@ -3203,12 +3226,15 @@ async function getAssetCompanyInfo(assetAddress) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetCompanyInfo for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetCompanyInfo for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetPricingDetailsInfo(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const rawResult = await publicClient.readContract({
       address: assetAddress,
@@ -3216,27 +3242,37 @@ async function getAssetPricingDetailsInfo(assetAddress) {
       functionName: "getAssetPricingDetails"
     });
     return {
-      currentPricePerToken: formatUnits(rawResult.currentPricePerToken, USDT_DECIMALS),
+      currentPricePerToken: formatUnits(
+        rawResult.currentPricePerToken,
+        USDT_DECIMALS
+      ),
       buyFeeBPS: formatBpsRate(rawResult.buyFeeBPS),
       sellFeeBPS: formatBpsRate(rawResult.sellFeeBPS),
       marketCap: formatUnits(rawResult.marketCap, USDT_DECIMALS),
-      lastPriceUpdateTimestamp: formatTimestamp(rawResult.lastPriceUpdateTimestamp),
+      lastPriceUpdateTimestamp: formatTimestamp(
+        rawResult.lastPriceUpdateTimestamp
+      ),
       acceptedCurrency: formatAddress(rawResult.acceptedCurrency)
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetPricingDetailsInfo for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetPricingDetailsInfo for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetFullDetailsInfo(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
-    const rawResult = await publicClient.readContract({
-      address: assetAddress,
-      abi: ZENOVA_ASSET_ABI,
-      functionName: "getFullAssetDetails"
-    });
+    const rawResult = await publicClient.readContract(
+      {
+        address: assetAddress,
+        abi: ZENOVA_ASSET_ABI,
+        functionName: "getFullAssetDetails"
+      }
+    );
     return {
       assetAddress: formatAddress(rawResult.assetAddress),
       // Should be the input assetAddress
@@ -3245,19 +3281,33 @@ async function getAssetFullDetailsInfo(assetAddress) {
         symbol: rawResult.companyDetails.symbol,
         description: rawResult.companyDetails.description,
         website: rawResult.companyDetails.website,
-        issuingCompanyWallet: formatAddress(rawResult.companyDetails.issuingCompanyWallet)
+        issuingCompanyWallet: formatAddress(
+          rawResult.companyDetails.issuingCompanyWallet
+        )
       },
       pricingDetails: {
-        currentPricePerToken: formatUnits(rawResult.pricingDetails.currentPricePerToken, USDT_DECIMALS),
+        currentPricePerToken: formatUnits(
+          rawResult.pricingDetails.currentPricePerToken,
+          USDT_DECIMALS
+        ),
         buyFeeBPS: formatBpsRate(rawResult.pricingDetails.buyFeeBPS),
         sellFeeBPS: formatBpsRate(rawResult.pricingDetails.sellFeeBPS),
-        marketCap: formatUnits(rawResult.pricingDetails.marketCap, USDT_DECIMALS),
-        lastPriceUpdateTimestamp: formatTimestamp(rawResult.pricingDetails.lastPriceUpdateTimestamp),
-        acceptedCurrency: formatAddress(rawResult.pricingDetails.acceptedCurrency)
+        marketCap: formatUnits(
+          rawResult.pricingDetails.marketCap,
+          USDT_DECIMALS
+        ),
+        lastPriceUpdateTimestamp: formatTimestamp(
+          rawResult.pricingDetails.lastPriceUpdateTimestamp
+        ),
+        acceptedCurrency: formatAddress(
+          rawResult.pricingDetails.acceptedCurrency
+        )
       },
       currentValuation: formatUsdtAmount(rawResult.currentValuation),
       maxTokenSupply: formatDefaultTokenAmount(rawResult.maxTokenSupply),
-      currentTotalSupply: formatDefaultTokenAmount(rawResult.currentTotalSupply),
+      currentTotalSupply: formatDefaultTokenAmount(
+        rawResult.currentTotalSupply
+      ),
       isTradingActive: rawResult.isTradingActive,
       admin: formatAddress(rawResult.admin),
       priceAI: formatAddress(rawResult.priceAI),
@@ -3265,12 +3315,15 @@ async function getAssetFullDetailsInfo(assetAddress) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetFullDetailsInfo for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetFullDetailsInfo for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetCurrentValuation(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3280,12 +3333,15 @@ async function getAssetCurrentValuation(assetAddress) {
     return formatUsdtAmount(data);
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetCurrentValuation for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetCurrentValuation for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetMaxTokenSupply(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3295,12 +3351,15 @@ async function getAssetMaxTokenSupply(assetAddress) {
     return formatDefaultTokenAmount(data);
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetMaxTokenSupply for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetMaxTokenSupply for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetIsTradingActive(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3311,12 +3370,15 @@ async function getAssetIsTradingActive(assetAddress) {
     return data;
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetIsTradingActive for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetIsTradingActive for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetCollectedFees(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const data = await publicClient.readContract({
       address: assetAddress,
@@ -3327,13 +3389,17 @@ async function getAssetCollectedFees(assetAddress) {
     return formatUsdtAmount(data);
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetCollectedFees for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetCollectedFees for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetBuyQuote(assetAddress, tokenAmountToBuy) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(tokenAmountToBuy) <= 0) return { error: "Token amount to buy must be positive." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(tokenAmountToBuy) <= 0)
+    return { error: "Token amount to buy must be positive." };
   try {
     const amountWei = parseUnits(tokenAmountToBuy, DEFAULT_TOKEN_DECIMALS);
     const result = await publicClient.readContract({
@@ -3348,13 +3414,17 @@ async function getAssetBuyQuote(assetAddress, tokenAmountToBuy) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetBuyQuote for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetBuyQuote for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetSellQuote(assetAddress, tokenAmountToSell) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(tokenAmountToSell) <= 0) return { error: "Token amount to sell must be positive." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(tokenAmountToSell) <= 0)
+    return { error: "Token amount to sell must be positive." };
   try {
     const amountWei = parseUnits(tokenAmountToSell, DEFAULT_TOKEN_DECIMALS);
     const result = await publicClient.readContract({
@@ -3369,12 +3439,15 @@ async function getAssetSellQuote(assetAddress, tokenAmountToSell) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetSellQuote for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetSellQuote for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetTradingMetrics(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const rawResult = await publicClient.readContract({
       address: assetAddress,
@@ -3395,12 +3468,15 @@ async function getAssetTradingMetrics(assetAddress) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetTradingMetrics for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetTradingMetrics for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetMarketAnalysis(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const rawResult = await publicClient.readContract({
       address: assetAddress,
@@ -3415,16 +3491,21 @@ async function getAssetMarketAnalysis(assetAddress) {
       priceToValuationRatioBPS: formatBpsRate(rawResult.priceToValuationRatio),
       isOvervalued: rawResult.isOvervalued,
       isUndervalued: rawResult.isUndervalued,
-      timeSinceLastPriceUpdate: formatDuration(rawResult.timeSinceLastPriceUpdate)
+      timeSinceLastPriceUpdate: formatDuration(
+        rawResult.timeSinceLastPriceUpdate
+      )
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetMarketAnalysis for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetMarketAnalysis for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetUserAssetInfo(assetAddress, user) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   if (!isValidAddress(user)) return { error: "Invalid user address provided." };
   try {
     const rawResult = await publicClient.readContract({
@@ -3447,12 +3528,15 @@ async function getAssetUserAssetInfo(assetAddress, user) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetUserAssetInfo for ${assetAddress}, user ${user}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetUserAssetInfo for ${assetAddress}, user ${user}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function getAssetSnapshotInfo(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const result = await publicClient.readContract({
       address: assetAddress,
@@ -3471,15 +3555,21 @@ async function getAssetSnapshotInfo(assetAddress) {
     };
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in getAssetSnapshotInfo for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in getAssetSnapshotInfo for ${assetAddress}: ${errorMessage}`
+    );
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function setAssetCompanyValuationAndSupply(assetAddress, companyValuation, initialPricePerToken, evaluator) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(companyValuation) <= 0) return { error: "Company valuation must be positive." };
-  if (parseFloat(initialPricePerToken) <= 0) return { error: "Initial price per token must be positive." };
-  if (!isValidAddress(evaluator)) return { error: "Invalid evaluator address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(companyValuation) <= 0)
+    return { error: "Company valuation must be positive." };
+  if (parseFloat(initialPricePerToken) <= 0)
+    return { error: "Initial price per token must be positive." };
+  if (!isValidAddress(evaluator))
+    return { error: "Invalid evaluator address provided." };
   try {
     const valuationWei = parseUnits(companyValuation, USDT_DECIMALS);
     const priceWei = parseUnits(initialPricePerToken, USDT_DECIMALS);
@@ -3493,13 +3583,21 @@ async function setAssetCompanyValuationAndSupply(assetAddress, companyValuation,
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Company valuation and supply set successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Company valuation and supply set successfully."
+      };
     } else {
-      return { error: `Setting company valuation and supply failed. Status: ${receipt.status}` };
+      return {
+        error: `Setting company valuation and supply failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in setAssetCompanyValuationAndSupply for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in setAssetCompanyValuationAndSupply for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("AlreadyInitialized")) {
       return { error: "Valuation and supply can only be set once." };
     }
@@ -3507,8 +3605,10 @@ async function setAssetCompanyValuationAndSupply(assetAddress, companyValuation,
   }
 }
 async function updateAssetPrice(assetAddress, newPricePerToken) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(newPricePerToken) <= 0) return { error: "New price must be positive." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(newPricePerToken) <= 0)
+    return { error: "New price must be positive." };
   try {
     const priceWei = parseUnits(newPricePerToken, USDT_DECIMALS);
     const hash = await aiWalletClient.writeContract({
@@ -3520,20 +3620,31 @@ async function updateAssetPrice(assetAddress, newPricePerToken) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Asset price updated successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Asset price updated successfully."
+      };
     } else {
       return { error: `Asset price update failed. Status: ${receipt.status}` };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in updateAssetPrice for ${assetAddress}: ${errorMessage}`);
-    return { error: `An unexpected error occurred during price update: ${errorMessage}` };
+    console.error(
+      `Error in updateAssetPrice for ${assetAddress}: ${errorMessage}`
+    );
+    return {
+      error: `An unexpected error occurred during price update: ${errorMessage}`
+    };
   }
 }
 async function updateAssetLiquidityParameters(assetAddress, newBuyFeeBPS, newSellFeeBPS) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (newBuyFeeBPS < 0 || newBuyFeeBPS > 5e3) return { error: "Buy fee BPS must be between 0 and 5000 (50%)." };
-  if (newSellFeeBPS < 0 || newSellFeeBPS > 5e3) return { error: "Sell fee BPS must be between 0 and 5000 (50%)." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (newBuyFeeBPS < 0 || newBuyFeeBPS > 5e3)
+    return { error: "Buy fee BPS must be between 0 and 5000 (50%)." };
+  if (newSellFeeBPS < 0 || newSellFeeBPS > 5e3)
+    return { error: "Sell fee BPS must be between 0 and 5000 (50%)." };
   try {
     const hash = await aiWalletClient.writeContract({
       address: assetAddress,
@@ -3544,13 +3655,21 @@ async function updateAssetLiquidityParameters(assetAddress, newBuyFeeBPS, newSel
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Liquidity parameters updated successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Liquidity parameters updated successfully."
+      };
     } else {
-      return { error: `Liquidity parameter update failed. Status: ${receipt.status}` };
+      return {
+        error: `Liquidity parameter update failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in updateAssetLiquidityParameters for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in updateAssetLiquidityParameters for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("FeeTooHigh")) {
       return { error: "Fee is too high (e.g., exceeds 50%)." };
     }
@@ -3558,7 +3677,8 @@ async function updateAssetLiquidityParameters(assetAddress, newBuyFeeBPS, newSel
   }
 }
 async function activateAssetTrading(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const hash = await aiWalletClient.writeContract({
       address: assetAddress,
@@ -3568,24 +3688,33 @@ async function activateAssetTrading(assetAddress) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Trading activated successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Trading activated successfully."
+      };
     } else {
       return { error: `Trading activation failed. Status: ${receipt.status}` };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in activateAssetTrading for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in activateAssetTrading for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("TradingActive")) {
       return { error: "Trading is already active." };
     }
     if (errorMessage.includes("ValuationNotSet")) {
-      return { error: "Cannot activate trading before company valuation is set." };
+      return {
+        error: "Cannot activate trading before company valuation is set."
+      };
     }
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function deactivateAssetTrading(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const hash = await aiWalletClient.writeContract({
       address: assetAddress,
@@ -3595,13 +3724,21 @@ async function deactivateAssetTrading(assetAddress) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Trading deactivated successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Trading deactivated successfully."
+      };
     } else {
-      return { error: `Trading deactivation failed. Status: ${receipt.status}` };
+      return {
+        error: `Trading deactivation failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in deactivateAssetTrading for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in deactivateAssetTrading for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("TradingNotActive")) {
       return { error: "Trading is already inactive." };
     }
@@ -3609,8 +3746,10 @@ async function deactivateAssetTrading(assetAddress) {
   }
 }
 async function buyAssetTokens(assetAddress, tokenAmountToBuy) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(tokenAmountToBuy) <= 0) return { error: "Token amount to buy must be positive." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(tokenAmountToBuy) <= 0)
+    return { error: "Token amount to buy must be positive." };
   try {
     const amountWei = parseUnits(tokenAmountToBuy, DEFAULT_TOKEN_DECIMALS);
     const hash = await aiWalletClient.writeContract({
@@ -3623,13 +3762,21 @@ async function buyAssetTokens(assetAddress, tokenAmountToBuy) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: `Successfully bought ${tokenAmountToBuy} tokens from asset ${assetAddress}.` };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: `Successfully bought ${tokenAmountToBuy} tokens from asset ${assetAddress}.`
+      };
     } else {
-      return { error: `Buy tokens transaction failed. Status: ${receipt.status}` };
+      return {
+        error: `Buy tokens transaction failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in buyAssetTokens for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in buyAssetTokens for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("MaxSupplyReached")) {
       return { error: "Cannot buy, maximum token supply reached." };
     }
@@ -3637,8 +3784,10 @@ async function buyAssetTokens(assetAddress, tokenAmountToBuy) {
   }
 }
 async function sellAssetTokens(assetAddress, tokenAmountToSell) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(tokenAmountToSell) <= 0) return { error: "Token amount to sell must be positive." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(tokenAmountToSell) <= 0)
+    return { error: "Token amount to sell must be positive." };
   try {
     const amountWei = parseUnits(tokenAmountToSell, DEFAULT_TOKEN_DECIMALS);
     const hash = await aiWalletClient.writeContract({
@@ -3651,25 +3800,37 @@ async function sellAssetTokens(assetAddress, tokenAmountToSell) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: `Successfully sold ${tokenAmountToSell} tokens from asset ${assetAddress}.` };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: `Successfully sold ${tokenAmountToSell} tokens from asset ${assetAddress}.`
+      };
     } else {
-      return { error: `Sell tokens transaction failed. Status: ${receipt.status}` };
+      return {
+        error: `Sell tokens transaction failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in sellAssetTokens for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in sellAssetTokens for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("ERC20InsufficientBalance")) {
       return { error: "Seller has insufficient token balance." };
     }
     if (errorMessage.includes("InsufficientOutputAmount")) {
-      return { error: "Contract may have insufficient liquidity to cover the sale, or fee is too high." };
+      return {
+        error: "Contract may have insufficient liquidity to cover the sale, or fee is too high."
+      };
     }
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function withdrawAssetFees(assetAddress, recipient) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (!isValidAddress(recipient)) return { error: "Invalid recipient address for fees." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (!isValidAddress(recipient))
+    return { error: "Invalid recipient address for fees." };
   try {
     const hash = await aiWalletClient.writeContract({
       address: assetAddress,
@@ -3681,13 +3842,21 @@ async function withdrawAssetFees(assetAddress, recipient) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Asset fees withdrawn successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Asset fees withdrawn successfully."
+      };
     } else {
-      return { error: `Withdraw fees transaction failed. Status: ${receipt.status}` };
+      return {
+        error: `Withdraw fees transaction failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in withdrawAssetFees for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in withdrawAssetFees for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("NoFeesToWithdraw")) {
       return { error: "No fees available to withdraw." };
     }
@@ -3695,8 +3864,10 @@ async function withdrawAssetFees(assetAddress, recipient) {
   }
 }
 async function companyWithdrawAssetTokens(assetAddress, amountOfTokens) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
-  if (parseFloat(amountOfTokens) <= 0) return { error: "Amount of tokens to withdraw must be positive." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
+  if (parseFloat(amountOfTokens) <= 0)
+    return { error: "Amount of tokens to withdraw must be positive." };
   try {
     const amountWei = parseUnits(amountOfTokens, DEFAULT_TOKEN_DECIMALS);
     const hash = await aiWalletClient.writeContract({
@@ -3705,28 +3876,39 @@ async function companyWithdrawAssetTokens(assetAddress, amountOfTokens) {
       functionName: "companyWithdraw",
       args: [amountWei],
       account: aiWalletClient.account
-      // Caller must have AI_ROLE 
+      // Caller must have AI_ROLE
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Company token withdrawal successful." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Company token withdrawal successful."
+      };
     } else {
-      return { error: `Company token withdrawal failed. Status: ${receipt.status}` };
+      return {
+        error: `Company token withdrawal failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in companyWithdrawAssetTokens for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in companyWithdrawAssetTokens for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("CompanyWalletNotSet")) {
       return { error: "Company wallet not set in the asset contract." };
     }
     if (errorMessage.includes("MaxSupplyReached")) {
-      return { error: "Withdrawal amount exceeds maximum supply or company allocation limits." };
+      return {
+        error: "Withdrawal amount exceeds maximum supply or company allocation limits."
+      };
     }
     return { error: `An unexpected error occurred: ${errorMessage}` };
   }
 }
 async function pauseAssetTrading(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const hash = await aiWalletClient.writeContract({
       address: assetAddress,
@@ -3736,13 +3918,21 @@ async function pauseAssetTrading(assetAddress) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Asset trading paused successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Asset trading paused successfully."
+      };
     } else {
-      return { error: `Pause trading transaction failed. Status: ${receipt.status}` };
+      return {
+        error: `Pause trading transaction failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in pauseAssetTrading for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in pauseAssetTrading for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("Pausable: paused")) {
       return { error: "Asset trading is already paused." };
     }
@@ -3750,7 +3940,8 @@ async function pauseAssetTrading(assetAddress) {
   }
 }
 async function unpauseAssetTrading(assetAddress) {
-  if (!isValidAddress(assetAddress)) return { error: "Invalid asset address provided." };
+  if (!isValidAddress(assetAddress))
+    return { error: "Invalid asset address provided." };
   try {
     const hash = await aiWalletClient.writeContract({
       address: assetAddress,
@@ -3760,13 +3951,21 @@ async function unpauseAssetTrading(assetAddress) {
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
-      return { success: true, transactionHash: hash, message: "Asset trading unpaused successfully." };
+      return {
+        success: true,
+        transactionHash: hash,
+        message: "Asset trading unpaused successfully."
+      };
     } else {
-      return { error: `Unpause trading transaction failed. Status: ${receipt.status}` };
+      return {
+        error: `Unpause trading transaction failed. Status: ${receipt.status}`
+      };
     }
   } catch (err) {
     const errorMessage = err instanceof BaseError ? err.shortMessage : err instanceof Error ? err.message : String(err);
-    console.error(`Error in unpauseAssetTrading for ${assetAddress}: ${errorMessage}`);
+    console.error(
+      `Error in unpauseAssetTrading for ${assetAddress}: ${errorMessage}`
+    );
     if (errorMessage.includes("Pausable: not paused")) {
       return { error: "Asset trading is not currently paused." };
     }

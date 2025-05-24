@@ -20,8 +20,6 @@ export function TenstackProviders(props: { children: React.ReactNode }) {
                     onError: (error) => {
                         console.error('Global Mutation Error:', { error })
                     },
-                    onSettled(data, error, variables, context, mutation) {
-                    },
                     onSuccess(data, variables, context, mutation) {
                         console.log('Global Mutation Success:', { data, variables, context, mutation })
                         queryClient.invalidateQueries()

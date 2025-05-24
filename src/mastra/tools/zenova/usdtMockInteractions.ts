@@ -1,13 +1,12 @@
 import { publicClient, aiWalletClient } from "../../../../viemConfig";
 import { usdtMockConfig } from "@/generated";
-import { Hex, getAddress, formatUnits as viemFormatUnits, parseUnits, BaseError } from "viem";
+import { Hex, getAddress, parseUnits, BaseError } from "viem";
 import {
     ContractErrorResponse,
     TransactionSuccessResponse
 } from "./zenovaFormattedTypes";
 import {
     formatUsdtAmount,
-    formatAddress,
     formatNumber
 } from "./formatters";
 

@@ -24,7 +24,7 @@ import {
 
 const FACTORY_ADDRESS = zenovaAssetFactoryConfig.address[publicClient.chain.id] as Hex;
 const FACTORY_ABI = zenovaAssetFactoryConfig.abi;
-const USDT_ADDRESS = usdtMockConfig.address[publicClient.chain.id] as Hex;
+// const USDT_ADDRESS = usdtMockConfig.address[publicClient.chain.id] as Hex;
 const USDT_DECIMALS = 6;
 const DEFAULT_TOKEN_DECIMALS = 18;
 
@@ -546,7 +546,7 @@ export async function createZenovaAssetFactory(
                     }
                 } catch (decodeError) {
                     // Not the event we're looking for, or an issue decoding it.
-                    // console.debug("Failed to decode a log or not the ZenovaAssetCreated event:", decodeError);
+                    console.debug("Failed to decode a log or not the ZenovaAssetCreated event:", decodeError);
                 }
             }
 

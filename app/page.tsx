@@ -26,7 +26,7 @@ export default function Home() {
               Trusted by Companies & Investors
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              See how businesses and investors are leveraging Zenova's tokenized stock platform
+              See how businesses and investors are leveraging Zenova&apos;s tokenized stock platform
               for transparent, efficient capital markets.
             </p>
           </motion.div>

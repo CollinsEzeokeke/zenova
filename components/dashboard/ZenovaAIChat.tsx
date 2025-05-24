@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, List, X, ArrowLeft } from "lucide-react";
+import { MessageCircle, List, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sheet,

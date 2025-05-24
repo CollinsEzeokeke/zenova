@@ -56,7 +56,7 @@ const Documentation = () => {
                 <h3 className="text-xl font-semibold text-white mb-4">What is Zenova?</h3>
                 <p className="text-gray-300 mb-4">
                   Zenova redefines how companies go public and trade stocks using **AI** and **blockchain technology**. 
-                  It's an AI-powered, decentralized platform that allows private companies to bypass traditional IPOs 
+                  It&apos;s an AI-powered, decentralized platform that allows private companies to bypass traditional IPOs 
                   through autonomous evaluation and tokenization processes.
                 </p>
                 <p className="text-gray-300">
@@ -102,7 +102,7 @@ const Documentation = () => {
                 <h3 className="text-2xl font-semibold text-metamesh-yellow mb-4">The `AI_ROLE`: The Engine of Zenova</h3>
                 <p className="text-gray-300 mb-4">
                   Zenova implements an **ultra-simplified** role-based access control system centered around a single, 
-                  all-powerful role: the `AI_ROLE`. This design philosophy underpins Zenova's commitment to being 
+                  all-powerful role: the `AI_ROLE`. This design philosophy underpins Zenova&apos;s commitment to being 
                   a fully autonomous, AI-driven platform.
                 </p>
                 
@@ -136,7 +136,7 @@ const Documentation = () => {
                   <div className="bg-metamesh-dark/50 border border-metamesh-gray/50 rounded p-4">
                     <h5 className="font-mono text-metamesh-yellow mb-2">`submitCompanyValuation()`</h5>
                     <p className="text-gray-300 text-sm mb-2">
-                      **Restricted to `AI_ROLE`**. Records a company's AI-assessed valuation and suggested initial token price.
+                      **Restricted to `AI_ROLE`**. Records a company&apos;s AI-assessed valuation and suggested initial token price.
                     </p>
                     <div className="bg-black/30 rounded p-2">
                       <code className="text-xs text-gray-400">
@@ -178,8 +178,8 @@ const Documentation = () => {
               <div className="bg-metamesh-dark-card border border-metamesh-gray rounded-lg p-6 mb-8">
                 <h3 className="text-2xl font-semibold text-metamesh-yellow mb-4">`ZenovaAsset.sol`: The Digital Share</h3>
                 <p className="text-gray-300 mb-4">
-                  Represents a company's tokenized shares as an ERC20 token. Inherits from OpenZeppelin's 
-                  `ERC20`, `AccessControlEnumerable`, `Pausable`, and Zenova's `ZenovaRoles`.
+                  Represents a company&apos;s tokenized shares as an ERC20 token. Inherits from OpenZeppelin&apos;s 
+                  `ERC20`, `AccessControlEnumerable`, `Pausable`, and Zenova&apos;s `ZenovaRoles`.
                 </p>
 
                 <h4 className="font-semibold text-white mb-3">Key Data Structures:</h4>

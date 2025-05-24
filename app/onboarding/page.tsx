@@ -210,7 +210,7 @@ const Onboarding = () => {
                         </h2>
                         <p className="text-gray-300 mb-8 text-lg">
                           Congratulations! You have successfully completed the AI-powered onboarding process. 
-                          Your company information has been processed, and you're ready for the next steps.
+                          Your company information has been processed, and you&apos;re ready for the next steps.
                         </p>
                         <SciFiButton 
                           onClick={handleProceedToDashboard}

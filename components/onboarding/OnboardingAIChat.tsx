@@ -9,7 +9,7 @@ import {
   SimpleTextAttachmentAdapter,
 } from "@assistant-ui/react";
 import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
-import { useChat, type Message as VercelMessage } from "@ai-sdk/react";
+import { useChat } from "@ai-sdk/react";
 import { Thread } from "../thread";
 import { toast } from "sonner";
 import SciFiButton from "../ui/SciFiButton";

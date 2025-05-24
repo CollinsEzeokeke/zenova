@@ -39,7 +39,7 @@ import {
     submitCompanyValuationFactory,
     createZenovaAssetFactory,
 } from "./zenovaBlockchainInteractions";
-import { FormattedCompanyInitialValuation, FormattedFullAssetDetails, ContractErrorResponse } from "./zenovaFormattedTypes";
+// import { FormattedCompanyInitialValuation, FormattedFullAssetDetails, ContractErrorResponse } from "./zenovaFormattedTypes";
 
 
 // --- Factory Read Tools ---

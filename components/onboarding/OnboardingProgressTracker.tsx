@@ -6,13 +6,11 @@ import { Check, Circle, Lock } from 'lucide-react';
 interface OnboardingProgressTrackerProps {
   stages: string[];
   currentStage: number;
-  onStageChange: (stage: number) => void;
 }
 
 const OnboardingProgressTracker: React.FC<OnboardingProgressTrackerProps> = ({
   stages,
   currentStage,
-  onStageChange
 }) => {
   const getStageStatus = (index: number) => {
     if (index < currentStage) return 'completed';
