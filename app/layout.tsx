@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Provider from "@/lib/provider";
-import '@rainbow-me/rainbowkit/styles.css';
+import "@rainbow-me/rainbowkit/styles.css";
 import LayoutWrapper from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
@@ -19,10 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <Provider>
-   
-          <LayoutWrapper>
-            {children}
-          </LayoutWrapper>
+          <LayoutWrapper>{children}</LayoutWrapper>
         </Provider>
       </body>
     </html>
