@@ -38,7 +38,7 @@ const ZenovaAIChat = () => {
   const { address } = useAccount(); // Active user's address
 
   const runtime = useChatRuntime({
-    api: "/api/zenova-chat", // IMPORTANT: Configure Zenova's chat API endpoint
+    api: "/api/chat", // IMPORTANT: Configure Zenova's chat API endpoint
     adapters: {
       attachments: new CompositeAttachmentAdapter([
         new SimpleImageAttachmentAdapter(),

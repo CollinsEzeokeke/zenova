@@ -29,6 +29,7 @@ export function TanstackProviders(props: { children: React.ReactNode }) {
                 defaultOptions: {
                     queries: {
                         staleTime: 5 * 1000 * 1000, // 5 seconds in milliseconds
+                        refetchInterval: 30000, // Refetch every 30 seconds
 
 
 

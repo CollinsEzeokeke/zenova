@@ -1,4 +1,4 @@
-import { formatUnits, parseUnits } from "viem";
+import { formatUnits, Hex, parseUnits } from "viem";
 
 const USDT_DECIMALS = 6;
 const DEFAULT_TOKEN_DECIMALS = 18;
@@ -176,4 +176,11 @@ export function formatNumber(
 ): string {
   if (value === undefined || value === null) return "N/A";
   return value.toLocaleString();
+}
+
+export function formatAddressShort(address?: Hex | string | null): string {
+  if (!address || address === "0x0000000000000000000000000000000000000000") return "N/A";
+  const addr = String(address);
+  if (addr.length <= 10) return addr; // Basic check for already short strings or invalid format
+  return `${addr.substring(0, 6)}...${addr.substring(addr.length - 4)}`;
 }

@@ -5,13 +5,14 @@ import ZenovaAssetABI from './abis/ZenovaAsset.abi.json'
 import USDTMockABI from './abis/USDTMock.abi.json'
 import { Abi } from 'viem'
 
+// Deployment Block Number: 2310274
 export default defineConfig({
     out: 'generated.ts',
     contracts: [
         {
             name: "ZenovaAssetFactory",
             address: {
-                42421: "0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3"
+                42421: "0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12"
             },
             abi: ZenovaAssetFactoryABI as Abi
         },
@@ -19,14 +20,14 @@ export default defineConfig({
             name: "ZenovaAsset",
             address: {
                 // This address is the implementation address from deployment.json (ZenovaAsset_Implementation)
-                42421: "0xDe06ca34EA978e7361C3c27e31F082f2996606a5"
+                42421: "0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC"
             },
             abi: ZenovaAssetABI as Abi,
         },
         {
             name: "USDTMock",
             address: {
-                42421: "0x75803eaC2e855C03a17c1140f4bC0155a5067F6f"
+                42421: "0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe"
             },
             abi: USDTMockABI as Abi,
         }

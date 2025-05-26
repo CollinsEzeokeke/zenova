@@ -12,10 +12,10 @@ Zenova is a modern Next.js 14+ application powered by AI and blockchain — and 
 ---
 
 ## 🔧 Stack Summary
-
+Icons should  use lucde-react
 - **Framework:** Next.js (App Router, TypeScript)
 - **Styling:** Tailwind CSS
-- **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
+- **UI Components:** [ShadCN UI](mdc:https:/ui.shadcn.com)
 - **Animation:** Framer Motion
 - **Blockchain Layer:** ERC-20, Smart Contracts (EVM)
 - **AI Layer:** Company evaluation, autonomous pricing
@@ -111,4 +111,5 @@ Zenova is more than just a web app — it's a **protocol interface** for the dec
 ---
 
 **Zenova** — Building intelligent, trustless public markets for the future.
+
 

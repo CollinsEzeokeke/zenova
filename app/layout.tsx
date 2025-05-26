@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Provider from "@/lib/provider";
 import '@rainbow-me/rainbowkit/styles.css';
+import LayoutWrapper from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
   title: "Zenova - AI-Powered Tokenized Stock Platform",
@@ -17,7 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <Provider>{children}</Provider>
+        <Provider>
+   
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+        </Provider>
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const usdtMockAbi = [
   {
@@ -20,13 +20,6 @@ export const usdtMockAbi = [
       { name: '_symbol', internalType: 'string', type: 'string' },
     ],
     stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'MAX_MINT_PER_TRANSACTION',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
   },
   {
     type: 'function',
@@ -83,13 +76,6 @@ export const usdtMockAbi = [
     type: 'function',
     inputs: [{ name: '_weiAmount', internalType: 'uint256', type: 'uint256' }],
     name: 'fromWei',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'pure',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'getMaxMintPerTransaction',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
     stateMutability: 'pure',
   },
@@ -357,14 +343,14 @@ export const usdtMockAbi = [
 ] as const
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const usdtMockAddress = {
-  42421: '0x75803eaC2e855C03a17c1140f4bC0155a5067F6f',
+  42421: '0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe',
 } as const
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const usdtMockConfig = {
   address: usdtMockAddress,
@@ -376,7 +362,7 @@ export const usdtMockConfig = {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const zenovaAssetAbi = [
   { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
@@ -1466,14 +1452,14 @@ export const zenovaAssetAbi = [
 ] as const
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const zenovaAssetAddress = {
-  42421: '0xDe06ca34EA978e7361C3c27e31F082f2996606a5',
+  42421: '0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC',
 } as const
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const zenovaAssetConfig = {
   address: zenovaAssetAddress,
@@ -1485,7 +1471,7 @@ export const zenovaAssetConfig = {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const zenovaAssetFactoryAbi = [
   {
@@ -2513,14 +2499,14 @@ export const zenovaAssetFactoryAbi = [
 ] as const
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const zenovaAssetFactoryAddress = {
-  42421: '0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3',
+  42421: '0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12',
 } as const
 
 /**
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const zenovaAssetFactoryConfig = {
   address: zenovaAssetFactoryAddress,
@@ -2534,7 +2520,7 @@ export const zenovaAssetFactoryConfig = {
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMock = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2542,21 +2528,9 @@ export const useReadUsdtMock = /*#__PURE__*/ createUseReadContract({
 })
 
 /**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"MAX_MINT_PER_TRANSACTION"`
- *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
- */
-export const useReadUsdtMockMaxMintPerTransaction =
-  /*#__PURE__*/ createUseReadContract({
-    abi: usdtMockAbi,
-    address: usdtMockAddress,
-    functionName: 'MAX_MINT_PER_TRANSACTION',
-  })
-
-/**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"allowance"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockAllowance = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2567,7 +2541,7 @@ export const useReadUsdtMockAllowance = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"balanceOf"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockBalanceOf = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2578,7 +2552,7 @@ export const useReadUsdtMockBalanceOf = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"decimals"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockDecimals = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2589,7 +2563,7 @@ export const useReadUsdtMockDecimals = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"fromWei"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockFromWei = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2598,21 +2572,9 @@ export const useReadUsdtMockFromWei = /*#__PURE__*/ createUseReadContract({
 })
 
 /**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"getMaxMintPerTransaction"`
- *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
- */
-export const useReadUsdtMockGetMaxMintPerTransaction =
-  /*#__PURE__*/ createUseReadContract({
-    abi: usdtMockAbi,
-    address: usdtMockAddress,
-    functionName: 'getMaxMintPerTransaction',
-  })
-
-/**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"name"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockName = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2623,7 +2585,7 @@ export const useReadUsdtMockName = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"owner"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockOwner = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2634,7 +2596,7 @@ export const useReadUsdtMockOwner = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"symbol"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockSymbol = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2645,7 +2607,7 @@ export const useReadUsdtMockSymbol = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"toWei"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockToWei = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2656,7 +2618,7 @@ export const useReadUsdtMockToWei = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"totalSupply"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useReadUsdtMockTotalSupply = /*#__PURE__*/ createUseReadContract({
   abi: usdtMockAbi,
@@ -2667,7 +2629,7 @@ export const useReadUsdtMockTotalSupply = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMock = /*#__PURE__*/ createUseWriteContract({
   abi: usdtMockAbi,
@@ -2677,7 +2639,7 @@ export const useWriteUsdtMock = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockApprove = /*#__PURE__*/ createUseWriteContract({
   abi: usdtMockAbi,
@@ -2688,7 +2650,7 @@ export const useWriteUsdtMockApprove = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"bulkMintTestTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockBulkMintTestTokens =
   /*#__PURE__*/ createUseWriteContract({
@@ -2700,7 +2662,7 @@ export const useWriteUsdtMockBulkMintTestTokens =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"burn"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockBurn = /*#__PURE__*/ createUseWriteContract({
   abi: usdtMockAbi,
@@ -2711,7 +2673,7 @@ export const useWriteUsdtMockBurn = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"mintTestTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockMintTestTokens =
   /*#__PURE__*/ createUseWriteContract({
@@ -2723,7 +2685,7 @@ export const useWriteUsdtMockMintTestTokens =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"ownerMint"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockOwnerMint = /*#__PURE__*/ createUseWriteContract({
   abi: usdtMockAbi,
@@ -2734,7 +2696,7 @@ export const useWriteUsdtMockOwnerMint = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"renounceOwnership"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -2746,7 +2708,7 @@ export const useWriteUsdtMockRenounceOwnership =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"transfer"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockTransfer = /*#__PURE__*/ createUseWriteContract({
   abi: usdtMockAbi,
@@ -2757,7 +2719,7 @@ export const useWriteUsdtMockTransfer = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -2769,7 +2731,7 @@ export const useWriteUsdtMockTransferFrom =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"transferOwnership"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWriteUsdtMockTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -2781,7 +2743,7 @@ export const useWriteUsdtMockTransferOwnership =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMock = /*#__PURE__*/ createUseSimulateContract({
   abi: usdtMockAbi,
@@ -2791,7 +2753,7 @@ export const useSimulateUsdtMock = /*#__PURE__*/ createUseSimulateContract({
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockApprove =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2803,7 +2765,7 @@ export const useSimulateUsdtMockApprove =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"bulkMintTestTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockBulkMintTestTokens =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2815,7 +2777,7 @@ export const useSimulateUsdtMockBulkMintTestTokens =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"burn"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockBurn = /*#__PURE__*/ createUseSimulateContract({
   abi: usdtMockAbi,
@@ -2826,7 +2788,7 @@ export const useSimulateUsdtMockBurn = /*#__PURE__*/ createUseSimulateContract({
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"mintTestTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockMintTestTokens =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2838,7 +2800,7 @@ export const useSimulateUsdtMockMintTestTokens =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"ownerMint"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockOwnerMint =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2850,7 +2812,7 @@ export const useSimulateUsdtMockOwnerMint =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"renounceOwnership"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2862,7 +2824,7 @@ export const useSimulateUsdtMockRenounceOwnership =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"transfer"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockTransfer =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2874,7 +2836,7 @@ export const useSimulateUsdtMockTransfer =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2886,7 +2848,7 @@ export const useSimulateUsdtMockTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link usdtMockAbi}__ and `functionName` set to `"transferOwnership"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useSimulateUsdtMockTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2898,7 +2860,7 @@ export const useSimulateUsdtMockTransferOwnership =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdtMockAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWatchUsdtMockEvent = /*#__PURE__*/ createUseWatchContractEvent({
   abi: usdtMockAbi,
@@ -2908,7 +2870,7 @@ export const useWatchUsdtMockEvent = /*#__PURE__*/ createUseWatchContractEvent({
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdtMockAbi}__ and `eventName` set to `"Approval"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWatchUsdtMockApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2920,7 +2882,7 @@ export const useWatchUsdtMockApprovalEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdtMockAbi}__ and `eventName` set to `"BulkTokensMinted"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWatchUsdtMockBulkTokensMintedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2932,7 +2894,7 @@ export const useWatchUsdtMockBulkTokensMintedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdtMockAbi}__ and `eventName` set to `"OwnershipTransferred"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWatchUsdtMockOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2944,7 +2906,7 @@ export const useWatchUsdtMockOwnershipTransferredEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdtMockAbi}__ and `eventName` set to `"TokensMinted"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWatchUsdtMockTokensMintedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2956,7 +2918,7 @@ export const useWatchUsdtMockTokensMintedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link usdtMockAbi}__ and `eventName` set to `"Transfer"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x75803eaC2e855C03a17c1140f4bC0155a5067F6f)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x8acDE6a05Ef33dBf2448680D3d7B37582CeC3cAe)
  */
 export const useWatchUsdtMockTransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2968,7 +2930,7 @@ export const useWatchUsdtMockTransferEvent =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAsset = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -2978,7 +2940,7 @@ export const useReadZenovaAsset = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"AI_ROLE"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetAiRole = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -2989,7 +2951,7 @@ export const useReadZenovaAssetAiRole = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"DEFAULT_ADMIN_ROLE"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetDefaultAdminRole =
   /*#__PURE__*/ createUseReadContract({
@@ -3001,7 +2963,7 @@ export const useReadZenovaAssetDefaultAdminRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"LIQUIDITY_MANAGER_ROLE"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetLiquidityManagerRole =
   /*#__PURE__*/ createUseReadContract({
@@ -3013,7 +2975,7 @@ export const useReadZenovaAssetLiquidityManagerRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"PRICE_AI_ROLE"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetPriceAiRole =
   /*#__PURE__*/ createUseReadContract({
@@ -3025,7 +2987,7 @@ export const useReadZenovaAssetPriceAiRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"allowance"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetAllowance = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3036,7 +2998,7 @@ export const useReadZenovaAssetAllowance = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"assetPricingDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetAssetPricingDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -3048,7 +3010,7 @@ export const useReadZenovaAssetAssetPricingDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"balanceOf"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetBalanceOf = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3059,7 +3021,7 @@ export const useReadZenovaAssetBalanceOf = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"collectedFees"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetCollectedFees =
   /*#__PURE__*/ createUseReadContract({
@@ -3071,7 +3033,7 @@ export const useReadZenovaAssetCollectedFees =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"companyInfo"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetCompanyInfo =
   /*#__PURE__*/ createUseReadContract({
@@ -3083,7 +3045,7 @@ export const useReadZenovaAssetCompanyInfo =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"currentValuation"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetCurrentValuation =
   /*#__PURE__*/ createUseReadContract({
@@ -3095,7 +3057,7 @@ export const useReadZenovaAssetCurrentValuation =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"decimals"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetDecimals = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3106,7 +3068,7 @@ export const useReadZenovaAssetDecimals = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getAssetPricingDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetAssetPricingDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -3118,7 +3080,7 @@ export const useReadZenovaAssetGetAssetPricingDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getAssetSnapshot"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetAssetSnapshot =
   /*#__PURE__*/ createUseReadContract({
@@ -3130,7 +3092,7 @@ export const useReadZenovaAssetGetAssetSnapshot =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getBuyQuote"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetBuyQuote =
   /*#__PURE__*/ createUseReadContract({
@@ -3142,7 +3104,7 @@ export const useReadZenovaAssetGetBuyQuote =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getCollectedFees"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetCollectedFees =
   /*#__PURE__*/ createUseReadContract({
@@ -3154,7 +3116,7 @@ export const useReadZenovaAssetGetCollectedFees =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getCompanyInfo"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetCompanyInfo =
   /*#__PURE__*/ createUseReadContract({
@@ -3166,7 +3128,7 @@ export const useReadZenovaAssetGetCompanyInfo =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getFullAssetDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetFullAssetDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -3178,7 +3140,7 @@ export const useReadZenovaAssetGetFullAssetDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getMarketAnalysis"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetMarketAnalysis =
   /*#__PURE__*/ createUseReadContract({
@@ -3190,7 +3152,7 @@ export const useReadZenovaAssetGetMarketAnalysis =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getRoleAdmin"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetRoleAdmin =
   /*#__PURE__*/ createUseReadContract({
@@ -3202,7 +3164,7 @@ export const useReadZenovaAssetGetRoleAdmin =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getRoleMember"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetRoleMember =
   /*#__PURE__*/ createUseReadContract({
@@ -3214,7 +3176,7 @@ export const useReadZenovaAssetGetRoleMember =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getRoleMemberCount"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetRoleMemberCount =
   /*#__PURE__*/ createUseReadContract({
@@ -3226,7 +3188,7 @@ export const useReadZenovaAssetGetRoleMemberCount =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getRoleMembers"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetRoleMembers =
   /*#__PURE__*/ createUseReadContract({
@@ -3238,7 +3200,7 @@ export const useReadZenovaAssetGetRoleMembers =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getSellQuote"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetSellQuote =
   /*#__PURE__*/ createUseReadContract({
@@ -3250,7 +3212,7 @@ export const useReadZenovaAssetGetSellQuote =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getTradingMetrics"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetTradingMetrics =
   /*#__PURE__*/ createUseReadContract({
@@ -3262,7 +3224,7 @@ export const useReadZenovaAssetGetTradingMetrics =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"getUserAssetInfo"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetGetUserAssetInfo =
   /*#__PURE__*/ createUseReadContract({
@@ -3274,7 +3236,7 @@ export const useReadZenovaAssetGetUserAssetInfo =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"hasRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetHasRole = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3285,7 +3247,7 @@ export const useReadZenovaAssetHasRole = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"isTradingActive"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetIsTradingActive =
   /*#__PURE__*/ createUseReadContract({
@@ -3297,7 +3259,7 @@ export const useReadZenovaAssetIsTradingActive =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"lastTradeTimestamp"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetLastTradeTimestamp =
   /*#__PURE__*/ createUseReadContract({
@@ -3309,7 +3271,7 @@ export const useReadZenovaAssetLastTradeTimestamp =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"maxTokenSupply"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetMaxTokenSupply =
   /*#__PURE__*/ createUseReadContract({
@@ -3321,7 +3283,7 @@ export const useReadZenovaAssetMaxTokenSupply =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"name"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetName = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3332,7 +3294,7 @@ export const useReadZenovaAssetName = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"paused"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetPaused = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3343,7 +3305,7 @@ export const useReadZenovaAssetPaused = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"supportsInterface"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetSupportsInterface =
   /*#__PURE__*/ createUseReadContract({
@@ -3355,7 +3317,7 @@ export const useReadZenovaAssetSupportsInterface =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"symbol"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetSymbol = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetAbi,
@@ -3366,7 +3328,7 @@ export const useReadZenovaAssetSymbol = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"totalBuyTransactions"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetTotalBuyTransactions =
   /*#__PURE__*/ createUseReadContract({
@@ -3378,7 +3340,7 @@ export const useReadZenovaAssetTotalBuyTransactions =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"totalSellTransactions"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetTotalSellTransactions =
   /*#__PURE__*/ createUseReadContract({
@@ -3390,7 +3352,7 @@ export const useReadZenovaAssetTotalSellTransactions =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"totalSupply"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetTotalSupply =
   /*#__PURE__*/ createUseReadContract({
@@ -3402,7 +3364,7 @@ export const useReadZenovaAssetTotalSupply =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"totalTokensTraded"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetTotalTokensTraded =
   /*#__PURE__*/ createUseReadContract({
@@ -3414,7 +3376,7 @@ export const useReadZenovaAssetTotalTokensTraded =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"totalVolumeTraded"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetTotalVolumeTraded =
   /*#__PURE__*/ createUseReadContract({
@@ -3426,7 +3388,7 @@ export const useReadZenovaAssetTotalVolumeTraded =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"tradingActive"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetTradingActive =
   /*#__PURE__*/ createUseReadContract({
@@ -3438,7 +3400,7 @@ export const useReadZenovaAssetTradingActive =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"userHasTraded"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetUserHasTraded =
   /*#__PURE__*/ createUseReadContract({
@@ -3450,7 +3412,7 @@ export const useReadZenovaAssetUserHasTraded =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"userLastTradeTimestamp"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetUserLastTradeTimestamp =
   /*#__PURE__*/ createUseReadContract({
@@ -3462,7 +3424,7 @@ export const useReadZenovaAssetUserLastTradeTimestamp =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"userTotalFeesPaid"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetUserTotalFeesPaid =
   /*#__PURE__*/ createUseReadContract({
@@ -3474,7 +3436,7 @@ export const useReadZenovaAssetUserTotalFeesPaid =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"userTotalPurchaseValue"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetUserTotalPurchaseValue =
   /*#__PURE__*/ createUseReadContract({
@@ -3486,7 +3448,7 @@ export const useReadZenovaAssetUserTotalPurchaseValue =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"userTotalSaleValue"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useReadZenovaAssetUserTotalSaleValue =
   /*#__PURE__*/ createUseReadContract({
@@ -3498,7 +3460,7 @@ export const useReadZenovaAssetUserTotalSaleValue =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAsset = /*#__PURE__*/ createUseWriteContract({
   abi: zenovaAssetAbi,
@@ -3508,7 +3470,7 @@ export const useWriteZenovaAsset = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"activateTrading"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetActivateTrading =
   /*#__PURE__*/ createUseWriteContract({
@@ -3520,7 +3482,7 @@ export const useWriteZenovaAssetActivateTrading =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetApprove = /*#__PURE__*/ createUseWriteContract({
   abi: zenovaAssetAbi,
@@ -3531,7 +3493,7 @@ export const useWriteZenovaAssetApprove = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"buyTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetBuyTokens =
   /*#__PURE__*/ createUseWriteContract({
@@ -3543,7 +3505,7 @@ export const useWriteZenovaAssetBuyTokens =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"companyWithdraw"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetCompanyWithdraw =
   /*#__PURE__*/ createUseWriteContract({
@@ -3555,7 +3517,7 @@ export const useWriteZenovaAssetCompanyWithdraw =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"deactivateTrading"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetDeactivateTrading =
   /*#__PURE__*/ createUseWriteContract({
@@ -3567,7 +3529,7 @@ export const useWriteZenovaAssetDeactivateTrading =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"grantRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetGrantRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -3579,7 +3541,7 @@ export const useWriteZenovaAssetGrantRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"initialize"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetInitialize =
   /*#__PURE__*/ createUseWriteContract({
@@ -3591,7 +3553,7 @@ export const useWriteZenovaAssetInitialize =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"pause"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetPause = /*#__PURE__*/ createUseWriteContract({
   abi: zenovaAssetAbi,
@@ -3602,7 +3564,7 @@ export const useWriteZenovaAssetPause = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"renounceRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetRenounceRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -3614,7 +3576,7 @@ export const useWriteZenovaAssetRenounceRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"revokeRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetRevokeRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -3626,7 +3588,7 @@ export const useWriteZenovaAssetRevokeRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"sellTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetSellTokens =
   /*#__PURE__*/ createUseWriteContract({
@@ -3638,7 +3600,7 @@ export const useWriteZenovaAssetSellTokens =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"setCompanyValuationAndSupply"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetSetCompanyValuationAndSupply =
   /*#__PURE__*/ createUseWriteContract({
@@ -3650,7 +3612,7 @@ export const useWriteZenovaAssetSetCompanyValuationAndSupply =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"transfer"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetTransfer = /*#__PURE__*/ createUseWriteContract(
   {
@@ -3663,7 +3625,7 @@ export const useWriteZenovaAssetTransfer = /*#__PURE__*/ createUseWriteContract(
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -3675,7 +3637,7 @@ export const useWriteZenovaAssetTransferFrom =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"unpause"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetUnpause = /*#__PURE__*/ createUseWriteContract({
   abi: zenovaAssetAbi,
@@ -3686,7 +3648,7 @@ export const useWriteZenovaAssetUnpause = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"updateLiquidityParameters"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetUpdateLiquidityParameters =
   /*#__PURE__*/ createUseWriteContract({
@@ -3698,7 +3660,7 @@ export const useWriteZenovaAssetUpdateLiquidityParameters =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"updatePrice"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetUpdatePrice =
   /*#__PURE__*/ createUseWriteContract({
@@ -3710,7 +3672,7 @@ export const useWriteZenovaAssetUpdatePrice =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"withdrawFees"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWriteZenovaAssetWithdrawFees =
   /*#__PURE__*/ createUseWriteContract({
@@ -3722,7 +3684,7 @@ export const useWriteZenovaAssetWithdrawFees =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAsset = /*#__PURE__*/ createUseSimulateContract({
   abi: zenovaAssetAbi,
@@ -3732,7 +3694,7 @@ export const useSimulateZenovaAsset = /*#__PURE__*/ createUseSimulateContract({
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"activateTrading"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetActivateTrading =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3744,7 +3706,7 @@ export const useSimulateZenovaAssetActivateTrading =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetApprove =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3756,7 +3718,7 @@ export const useSimulateZenovaAssetApprove =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"buyTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetBuyTokens =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3768,7 +3730,7 @@ export const useSimulateZenovaAssetBuyTokens =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"companyWithdraw"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetCompanyWithdraw =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3780,7 +3742,7 @@ export const useSimulateZenovaAssetCompanyWithdraw =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"deactivateTrading"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetDeactivateTrading =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3792,7 +3754,7 @@ export const useSimulateZenovaAssetDeactivateTrading =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"grantRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetGrantRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3804,7 +3766,7 @@ export const useSimulateZenovaAssetGrantRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"initialize"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetInitialize =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3816,7 +3778,7 @@ export const useSimulateZenovaAssetInitialize =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"pause"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetPause =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3828,7 +3790,7 @@ export const useSimulateZenovaAssetPause =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"renounceRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetRenounceRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3840,7 +3802,7 @@ export const useSimulateZenovaAssetRenounceRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"revokeRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetRevokeRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3852,7 +3814,7 @@ export const useSimulateZenovaAssetRevokeRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"sellTokens"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetSellTokens =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3864,7 +3826,7 @@ export const useSimulateZenovaAssetSellTokens =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"setCompanyValuationAndSupply"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetSetCompanyValuationAndSupply =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3876,7 +3838,7 @@ export const useSimulateZenovaAssetSetCompanyValuationAndSupply =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"transfer"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetTransfer =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3888,7 +3850,7 @@ export const useSimulateZenovaAssetTransfer =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3900,7 +3862,7 @@ export const useSimulateZenovaAssetTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"unpause"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetUnpause =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3912,7 +3874,7 @@ export const useSimulateZenovaAssetUnpause =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"updateLiquidityParameters"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetUpdateLiquidityParameters =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3924,7 +3886,7 @@ export const useSimulateZenovaAssetUpdateLiquidityParameters =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"updatePrice"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetUpdatePrice =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3936,7 +3898,7 @@ export const useSimulateZenovaAssetUpdatePrice =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetAbi}__ and `functionName` set to `"withdrawFees"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useSimulateZenovaAssetWithdrawFees =
   /*#__PURE__*/ createUseSimulateContract({
@@ -3948,7 +3910,7 @@ export const useSimulateZenovaAssetWithdrawFees =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -3959,7 +3921,7 @@ export const useWatchZenovaAssetEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"Approval"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -3971,7 +3933,7 @@ export const useWatchZenovaAssetApprovalEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"CompanyValuationSet"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetCompanyValuationSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -3983,7 +3945,7 @@ export const useWatchZenovaAssetCompanyValuationSetEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"LiquidityParametersUpdated"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetLiquidityParametersUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -3995,7 +3957,7 @@ export const useWatchZenovaAssetLiquidityParametersUpdatedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"Paused"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetPausedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4007,7 +3969,7 @@ export const useWatchZenovaAssetPausedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"PriceUpdated"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetPriceUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4019,7 +3981,7 @@ export const useWatchZenovaAssetPriceUpdatedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"RoleAdminChanged"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetRoleAdminChangedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4031,7 +3993,7 @@ export const useWatchZenovaAssetRoleAdminChangedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"RoleGranted"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetRoleGrantedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4043,7 +4005,7 @@ export const useWatchZenovaAssetRoleGrantedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"RoleRevoked"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetRoleRevokedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4055,7 +4017,7 @@ export const useWatchZenovaAssetRoleRevokedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"TradeExecuted"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetTradeExecutedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4067,7 +4029,7 @@ export const useWatchZenovaAssetTradeExecutedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"Transfer"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetTransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4079,7 +4041,7 @@ export const useWatchZenovaAssetTransferEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetAbi}__ and `eventName` set to `"Unpaused"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0xDe06ca34EA978e7361C3c27e31F082f2996606a5)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0244Fe25484349fE8CaEb4DC1e28F1baF94f3AFC)
  */
 export const useWatchZenovaAssetUnpausedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4091,7 +4053,7 @@ export const useWatchZenovaAssetUnpausedEvent =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactory = /*#__PURE__*/ createUseReadContract({
   abi: zenovaAssetFactoryAbi,
@@ -4101,7 +4063,7 @@ export const useReadZenovaAssetFactory = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"AI_ROLE"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryAiRole =
   /*#__PURE__*/ createUseReadContract({
@@ -4113,7 +4075,7 @@ export const useReadZenovaAssetFactoryAiRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"DEFAULT_ADMIN_ROLE"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryDefaultAdminRole =
   /*#__PURE__*/ createUseReadContract({
@@ -4125,7 +4087,7 @@ export const useReadZenovaAssetFactoryDefaultAdminRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"acceptedCurrency"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryAcceptedCurrency =
   /*#__PURE__*/ createUseReadContract({
@@ -4137,7 +4099,7 @@ export const useReadZenovaAssetFactoryAcceptedCurrency =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"allZenovaAssets"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryAllZenovaAssets =
   /*#__PURE__*/ createUseReadContract({
@@ -4149,7 +4111,7 @@ export const useReadZenovaAssetFactoryAllZenovaAssets =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"assetInitialValuations"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryAssetInitialValuations =
   /*#__PURE__*/ createUseReadContract({
@@ -4161,7 +4123,7 @@ export const useReadZenovaAssetFactoryAssetInitialValuations =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"companyToAssets"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryCompanyToAssets =
   /*#__PURE__*/ createUseReadContract({
@@ -4173,7 +4135,7 @@ export const useReadZenovaAssetFactoryCompanyToAssets =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getAllAssets"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetAllAssets =
   /*#__PURE__*/ createUseReadContract({
@@ -4185,7 +4147,7 @@ export const useReadZenovaAssetFactoryGetAllAssets =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getAssetFullDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetAssetFullDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -4197,7 +4159,7 @@ export const useReadZenovaAssetFactoryGetAssetFullDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getAssetsByCompany"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetAssetsByCompany =
   /*#__PURE__*/ createUseReadContract({
@@ -4209,7 +4171,7 @@ export const useReadZenovaAssetFactoryGetAssetsByCompany =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getCompanyComprehensiveDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetCompanyComprehensiveDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -4221,7 +4183,7 @@ export const useReadZenovaAssetFactoryGetCompanyComprehensiveDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getMultipleAssetAnalytics"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetMultipleAssetAnalytics =
   /*#__PURE__*/ createUseReadContract({
@@ -4233,7 +4195,7 @@ export const useReadZenovaAssetFactoryGetMultipleAssetAnalytics =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getMultipleAssetFullDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetMultipleAssetFullDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -4245,7 +4207,7 @@ export const useReadZenovaAssetFactoryGetMultipleAssetFullDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getPlatformSnapshot"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetPlatformSnapshot =
   /*#__PURE__*/ createUseReadContract({
@@ -4257,7 +4219,7 @@ export const useReadZenovaAssetFactoryGetPlatformSnapshot =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getRoleAdmin"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetRoleAdmin =
   /*#__PURE__*/ createUseReadContract({
@@ -4269,7 +4231,7 @@ export const useReadZenovaAssetFactoryGetRoleAdmin =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getSubmittedValuation"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetSubmittedValuation =
   /*#__PURE__*/ createUseReadContract({
@@ -4281,7 +4243,7 @@ export const useReadZenovaAssetFactoryGetSubmittedValuation =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"getUserPortfolioDetails"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryGetUserPortfolioDetails =
   /*#__PURE__*/ createUseReadContract({
@@ -4293,7 +4255,7 @@ export const useReadZenovaAssetFactoryGetUserPortfolioDetails =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"hasRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryHasRole =
   /*#__PURE__*/ createUseReadContract({
@@ -4305,7 +4267,7 @@ export const useReadZenovaAssetFactoryHasRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"supportsInterface"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactorySupportsInterface =
   /*#__PURE__*/ createUseReadContract({
@@ -4317,7 +4279,7 @@ export const useReadZenovaAssetFactorySupportsInterface =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"totalAssets"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryTotalAssets =
   /*#__PURE__*/ createUseReadContract({
@@ -4329,7 +4291,7 @@ export const useReadZenovaAssetFactoryTotalAssets =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"zenovaAssetImplementation"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useReadZenovaAssetFactoryZenovaAssetImplementation =
   /*#__PURE__*/ createUseReadContract({
@@ -4341,7 +4303,7 @@ export const useReadZenovaAssetFactoryZenovaAssetImplementation =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWriteZenovaAssetFactory = /*#__PURE__*/ createUseWriteContract({
   abi: zenovaAssetFactoryAbi,
@@ -4351,7 +4313,7 @@ export const useWriteZenovaAssetFactory = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"createZenovaAsset"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWriteZenovaAssetFactoryCreateZenovaAsset =
   /*#__PURE__*/ createUseWriteContract({
@@ -4363,7 +4325,7 @@ export const useWriteZenovaAssetFactoryCreateZenovaAsset =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"grantRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWriteZenovaAssetFactoryGrantRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -4375,7 +4337,7 @@ export const useWriteZenovaAssetFactoryGrantRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"renounceRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWriteZenovaAssetFactoryRenounceRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -4387,7 +4349,7 @@ export const useWriteZenovaAssetFactoryRenounceRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"revokeRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWriteZenovaAssetFactoryRevokeRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -4399,7 +4361,7 @@ export const useWriteZenovaAssetFactoryRevokeRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"submitCompanyValuation"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWriteZenovaAssetFactorySubmitCompanyValuation =
   /*#__PURE__*/ createUseWriteContract({
@@ -4411,7 +4373,7 @@ export const useWriteZenovaAssetFactorySubmitCompanyValuation =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useSimulateZenovaAssetFactory =
   /*#__PURE__*/ createUseSimulateContract({
@@ -4422,7 +4384,7 @@ export const useSimulateZenovaAssetFactory =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"createZenovaAsset"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useSimulateZenovaAssetFactoryCreateZenovaAsset =
   /*#__PURE__*/ createUseSimulateContract({
@@ -4434,7 +4396,7 @@ export const useSimulateZenovaAssetFactoryCreateZenovaAsset =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"grantRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useSimulateZenovaAssetFactoryGrantRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -4446,7 +4408,7 @@ export const useSimulateZenovaAssetFactoryGrantRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"renounceRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useSimulateZenovaAssetFactoryRenounceRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -4458,7 +4420,7 @@ export const useSimulateZenovaAssetFactoryRenounceRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"revokeRole"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useSimulateZenovaAssetFactoryRevokeRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -4470,7 +4432,7 @@ export const useSimulateZenovaAssetFactoryRevokeRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `functionName` set to `"submitCompanyValuation"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useSimulateZenovaAssetFactorySubmitCompanyValuation =
   /*#__PURE__*/ createUseSimulateContract({
@@ -4482,7 +4444,7 @@ export const useSimulateZenovaAssetFactorySubmitCompanyValuation =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWatchZenovaAssetFactoryEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4493,7 +4455,7 @@ export const useWatchZenovaAssetFactoryEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `eventName` set to `"CompanyValuationSubmitted"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWatchZenovaAssetFactoryCompanyValuationSubmittedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4505,7 +4467,7 @@ export const useWatchZenovaAssetFactoryCompanyValuationSubmittedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `eventName` set to `"RoleAdminChanged"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWatchZenovaAssetFactoryRoleAdminChangedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4517,7 +4479,7 @@ export const useWatchZenovaAssetFactoryRoleAdminChangedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `eventName` set to `"RoleGranted"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWatchZenovaAssetFactoryRoleGrantedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4529,7 +4491,7 @@ export const useWatchZenovaAssetFactoryRoleGrantedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `eventName` set to `"RoleRevoked"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWatchZenovaAssetFactoryRoleRevokedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -4541,7 +4503,7 @@ export const useWatchZenovaAssetFactoryRoleRevokedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link zenovaAssetFactoryAbi}__ and `eventName` set to `"ZenovaAssetCreated"`
  *
- * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x2CC8cc0344a2cb03c1F06A1A523969f7Cbfe55B3)
+ * [__View Contract on Asset Chain Testnet Asset Chain Testnet Explorer__](https://scan-testnet.assetchain.org/address/0x0fEb5A774883Ef8FB8F709e96a7dA72611961B12)
  */
 export const useWatchZenovaAssetFactoryZenovaAssetCreatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({

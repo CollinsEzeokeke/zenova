@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { ZenovaCustomConnectButton } from '@/components/ui/ZenovaCustomConnectButton';
+import UsdtBalance from '@/components/layout/UsdtBalance';
 
 const navLinks = [
   { text: "Home", path: "/" },
@@ -12,7 +14,7 @@ const navLinks = [
   { text: "Platform Stats", path: "/platform-stats" }
 ];
 
-export default function Navbar () {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -65,12 +67,9 @@ export default function Navbar () {
                   />
                 </Link>
               ))}
-              <Link
-                href="/onboarding"
-                className="bg-metamesh-yellow text-metamesh-dark hover:bg-metamesh-yellow/90 px-4 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                AI Onboarding
-              </Link>
+
+              <UsdtBalance />
+              <ZenovaCustomConnectButton />
             </div>
           </div>
 
@@ -110,13 +109,11 @@ export default function Navbar () {
                 {link.text}
               </Link>
             ))}
-            <Link
-              href="/onboarding"
-              className="bg-metamesh-yellow text-metamesh-dark hover:bg-metamesh-yellow/90 block px-3 py-2 rounded-md text-base font-medium mt-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              AI Onboarding
-            </Link>
+
+            <div className="mt-2 space-y-2">
+              <UsdtBalance />
+              <ZenovaCustomConnectButton />
+            </div>
           </div>
         </motion.div>
       )}

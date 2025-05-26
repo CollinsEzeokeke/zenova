@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { LucideProps } from 'lucide-react';
 
 interface SciFiButtonProps {
   children: React.ReactNode;
@@ -12,6 +13,8 @@ interface SciFiButtonProps {
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit';
+  icon?: React.ElementType;
+  iconProps?: Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>;
 }
 
 const SciFiButton: React.FC<SciFiButtonProps> = ({
@@ -23,6 +26,8 @@ const SciFiButton: React.FC<SciFiButtonProps> = ({
   className,
   disabled = false,
   type = 'button',
+  icon: Icon,
+  iconProps,
 }) => {
   const getVariantClasses = () => {
     switch (variant) {
@@ -65,7 +70,8 @@ const SciFiButton: React.FC<SciFiButtonProps> = ({
   const buttonContent = (
     <>
       <span className="relative z-10 flex items-center space-x-2">
-        {children}
+        {Icon && <Icon className={cn("h-4 w-4", iconProps?.className)} {...iconProps} />}
+        <span>{children}</span>
       </span>
       {variant === 'primary' && (
         <motion.div
