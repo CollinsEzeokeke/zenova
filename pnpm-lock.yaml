@@ -29,6 +29,9 @@ importers:
       '@mastra/core':
         specifier: ^0.10.0
         version: 0.10.0(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.23)
+      '@mastra/deployer-vercel':
+        specifier: ^0.10.0
+        version: 0.10.0(@mastra/core@0.10.0(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.23))(rollup@4.41.0)(typescript@5.8.3)
       '@mastra/fastembed':
         specifier: ^0.10.0
         version: 0.10.0(react@19.1.0)(sswr@2.2.0(svelte@5.33.1))(svelte@5.33.1)(vue@3.5.14(typescript@5.8.3))(zod@3.25.23)
@@ -1264,6 +1267,11 @@ packages:
     engines: {node: '>=20'}
     peerDependencies:
       zod: ^3.0.0
+
+  '@mastra/deployer-vercel@0.10.0':
+    resolution: {integrity: sha512-EwucO3N3w+ofXtdLZ8jMmerJ6C6dszTJWLHO+4eNsRXZWiEqd60fBjvq1U13F1SY0+X9Ouwzjju5dDse2fsYZQ==}
+    peerDependencies:
+      '@mastra/core': ^0.10.0
 
   '@mastra/deployer@0.10.0':
     resolution: {integrity: sha512-LT33n3T6PG09bNQ3KmTwfrYDEKLwA1AxwdHg6ADvXTv7h8FQQA2Omsa9UbU7jATPVf4YfXzWkWPJmlg7wfnGPg==}
@@ -8843,6 +8851,17 @@ snapshots:
       - supports-color
       - valibot
       - zod-openapi
+
+  '@mastra/deployer-vercel@0.10.0(@mastra/core@0.10.0(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.23))(rollup@4.41.0)(typescript@5.8.3)':
+    dependencies:
+      '@mastra/core': 0.10.0(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.23)
+      '@mastra/deployer': 0.10.0(@mastra/core@0.10.0(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.23))(typescript@5.8.3)
+      '@rollup/plugin-virtual': 3.0.2(rollup@4.41.0)
+      fs-extra: 11.3.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - typescript
 
   '@mastra/deployer@0.10.0(@mastra/core@0.10.0(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.23))(typescript@5.8.3)':
     dependencies:
