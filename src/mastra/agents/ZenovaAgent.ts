@@ -2,7 +2,7 @@ import { Agent } from "@mastra/core";
 import { Memory } from "@mastra/memory";
 import { UpstashStore, UpstashVector } from "@mastra/upstash";
 import { google } from "@ai-sdk/google";
-import { fastembed } from "@mastra/fastembed";
+import { openai } from "@ai-sdk/openai";
 
 // Import all Zenova tools from the index file
 import {
@@ -104,10 +104,16 @@ const vectorStore = new UpstashVector({
 });
 
 export const getMemoryConfig = () => {
+  // Ensure OPENAI_API_KEY is set in your environment for this to work
+  if (!process.env.OPENAI_API_KEY) {
+    console.warn("OPENAI_API_KEY is not set. OpenAI embedder will likely fail.");
+    // Optionally, throw an error or use a no-op embedder for builds if you prefer
+    // throw new Error("OPENAI_API_KEY is required for OpenAI embedder.");
+  }
   return new Memory({
     storage: memoryStorage,
     vector: vectorStore,
-    embedder: fastembed,
+    embedder: openai.embedding("text-embedding-3-small"),
     options: {
       lastMessages: 15,
       semanticRecall: {

@@ -19,8 +19,8 @@
     "@mastra/fastembed": "0.0.3",
     "@mastra/loggers": "^0.10.0",
     "@mastra/mcp-docs-server": "0.10.0",
-    "@mastra/memory": "0.3.4",
-    "@mastra/upstash": "^0.10.0",
+    "@mastra/memory": "0.4.0-alpha.1",
+    "@mastra/upstash": "0.4.0-alpha.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -80,8 +80,8 @@
     "zustand": "^5.0.5"
   },
   "devDependencies": {
-    "@mastra/core": "^0.10.0",
     "@eslint/eslintrc": "^3",
+    "@mastra/core": "0.10.0-alpha.1",
     "@tanstack/react-query-devtools": "5.69.0",
     "@types/node": "^20",
     "@types/react": "^19",
