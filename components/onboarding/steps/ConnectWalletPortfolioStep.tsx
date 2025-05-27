@@ -49,7 +49,7 @@ const ConnectWalletPortfolioStep: React.FC<NonNullable<unknown>> = () => {
                     Connect Your Wallet
                 </h2>
                 <p className="text-gray-400 text-lg max-w-md mx-auto leading-relaxed">
-                    Connect your Web3 wallet to access Zenova's tokenized stock platform and start trading ERC-20 company shares.
+                    Connect your Web3 wallet to access Zenova&apos;s tokenized stock platform and start trading ERC-20 company shares.
                 </p>
             </motion.div>
 

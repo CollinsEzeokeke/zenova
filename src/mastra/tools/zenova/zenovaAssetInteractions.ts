@@ -24,7 +24,6 @@ import {
     FormattedUserAssetInfo,
     FormattedAssetSnapshot,
     ContractErrorResponse,
-  TransactionSuccessResponse,
 } from "./zenovaFormattedTypes";
 import {
     formatUsdtAmount, 

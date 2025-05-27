@@ -41,15 +41,15 @@ function isValidAddress(address: string): boolean {
 }
 
 // Define the expected arguments for the ZenovaAssetCreated event
-interface ZenovaAssetCreatedEventArgs {
-    assetAddress: Hex;
-    companyWallet: Hex;
-    companyName: string;
-    creator: Hex;
-    initialValuation: bigint;
-    maxTokenSupply: bigint;
-    // Add other event parameters if they exist and are needed
-}
+// interface ZenovaAssetCreatedEventArgs {
+//     assetAddress: Hex;
+//     companyWallet: Hex;
+//     companyName: string;
+//     creator: Hex;
+//     initialValuation: bigint;
+//     maxTokenSupply: bigint;
+//     // Add other event parameters if they exist and are needed
+// }
 
 // --- Factory Getter Functions (Error handling updated) ---
 

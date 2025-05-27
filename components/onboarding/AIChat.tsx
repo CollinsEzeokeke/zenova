@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2, Maximize2, Minimize2 } from 'lucide-react';
+import { Send, Maximize2, Minimize2 } from 'lucide-react';
 import SciFiButton from '@/components/ui/SciFiButton';
-import { useOnboarding } from '@/contexts/OnboardingContext';
+import { useAccount } from "wagmi";
 
 import {
   AssistantRuntimeProvider,
@@ -14,7 +14,6 @@ import {
 } from "@assistant-ui/react";
 import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
 import { Thread } from "../thread";
-import { useAccount } from "wagmi";
 import { toast } from "sonner";
 
 interface AIChatProps {
@@ -25,7 +24,6 @@ interface AIChatProps {
 const AIChat: React.FC<AIChatProps> = ({ className }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { address } = useAccount();
-  const { setCurrentStage } = useOnboarding();
 
   // Set up the runtime with useChatRuntime, just like in ZenovaAIChat.tsx
   const runtime = useChatRuntime({

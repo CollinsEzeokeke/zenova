@@ -7,8 +7,7 @@ import { useUserTokenBalance } from '@/hooks/useUserTokenBalance';
 import { useAccount, useWriteContract } from 'wagmi';
 import { BarChart3, Briefcase, Building, CalendarDays, CheckCircle, DollarSign, Globe, Info, LinkIcon, ListChecks, Milestone, MinusCircle, Package, PlusCircle, Scale, ServerCrash, ShieldCheck, Tag, TrendingUp, Users, Wallet } from 'lucide-react';
 import SciFiButton from '@/components/ui/SciFiButton';
-import { FormattedFullAssetDetails } from '@/src/mastra/tools/zenova/zenovaFormattedTypes';
-import { formatAddressShort, formatNumberWithCommas } from '@/src/utils/formatters';
+import { formatAddressShort } from '@/src/utils/formatters';
 import { zenovaAssetConfig, usdtMockConfig } from '@/generated';
 import { publicClient } from '@/src/utils/publicClient';
 import { parseUnits, formatUnits, Hex, erc20Abi } from 'viem';
@@ -163,7 +162,7 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
 
                 const approveTxHash = await toast.promise(approveUsdtAsync(request), {
                     loading: `Approving USDT...`,
-                    success: (receipt) => `USDT Approved! Tx: ${formatAddressShort(receipt)}`,
+                    success: (_receipt) => `USDT Approved! Tx: ${formatAddressShort(_receipt)}`,
                     error: (err) => `Approval failed: ${(err as Error).message}`
                 }).unwrap();
 
@@ -176,9 +175,9 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
                     }),
                     {
                         loading: `Approving USDT... (${formatAddressShort(approveTxHash)})`,
-                        success: (receipt) => {
+                        success: (_receipt) => {
                             // Success message for the approval (buy success will be shown separately)
-                            return `USDT Approved! Tx: ${formatAddressShort(receipt.transactionHash)}`;
+                            return `USDT Approved! Tx: ${formatAddressShort(_receipt.transactionHash)}`;
                         },
                         error: (err) => {
                             setIsProcessingTx(false);
@@ -186,9 +185,10 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
                         }
                     }
                 );
-            } catch (e: any) {
+            } catch (e) {
+                const errorMessage = e instanceof Error ? e.message : "Unknown error";
                 console.error("Approval error:", e);
-                toast.error(`Approval failed: ${(e as Error).message || "Unknown error"}`);
+                toast.error(`Approval failed: ${errorMessage}`);
                 setIsProcessingTx(false);
             }
         } else {
@@ -213,7 +213,7 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
             });
 
             const buyTxHash = await toast.promise(buyAssetAsync(request, {
-                onSuccess: (receipt) => {
+                onSuccess: () => {
                     queryClient.invalidateQueries();
                 },
                 onError: (err) => {
@@ -222,7 +222,7 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
             }),
                 {
                 loading: `Buying ${tradeAmount} ${asset?.companyDetails.symbol}...`,
-                success: (receipt) => `Successfully bought ${asset?.companyDetails.symbol}! Tx: ${formatAddressShort(receipt)}`,
+                success: (_receipt) => `Successfully bought ${asset?.companyDetails.symbol}! Tx: ${formatAddressShort(_receipt)}`,
                 error: (err) => `Buy transaction failed: ${(err as Error).message}`
             }).unwrap();
 
@@ -243,21 +243,29 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
                     return `Buy transaction failed: ${(err as Error).message}`;
                 }
             });
-        } catch (e: any) {
+        } catch (e) {
+            const errorMessage = e instanceof Error ? e.message : "Unknown error";
             console.error("Buy transaction error:", e);
-            toast.error(`Buy failed: ${(e as Error).message || "Unknown error"}`);
+            toast.error(`Buy failed: ${errorMessage}`);
             setIsProcessingTx(false);
         }
     };
 
     const handleSell = async () => {
         if (!userWalletAddress) { toast.error("Please connect your wallet."); return; }
+        if (!assetAddress) { toast.error("Asset address not found."); return; }
         if (!tradeAmount || parseUnits(tradeAmount, ASSET_DECIMALS) <= BigInt(0)) {
-            toast.error("Sell amount must be greater than zero."); return;
+            toast.error("Sell amount must be greater than zero.");
+            return;
+        }
+        if (!userAssetBalance || parseUnits(tradeAmount, ASSET_DECIMALS) > Number(userAssetBalance)) {
+            toast.error("Insufficient asset balance to sell.");
+            return;
         }
 
         setIsProcessingTx(true);
         toast.info("Processing sell transaction...");
+
         try {
             const amountToSellWei = parseUnits(tradeAmount, ASSET_DECIMALS);
             const { request } = await publicClient.simulateContract({
@@ -267,14 +275,20 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
                 functionName: 'sellTokens',
                 args: [amountToSellWei],
             });
-            const sellTxHash = await sellAssetAsync(request, {
-                onSuccess: (receipt) => {
+
+            const sellTxHash = await toast.promise(sellAssetAsync(request, {
+                onSuccess: () => {
                     queryClient.invalidateQueries();
                 },
                 onError: (err) => {
                     console.error("Sell transaction error:", err);
                 }
-            });
+            }), {
+                loading: `Selling ${tradeAmount} ${asset?.companyDetails.symbol}...`,
+                success: (_receipt) => `Successfully sold ${asset?.companyDetails.symbol}! Tx: ${formatAddressShort(_receipt)}`,
+                error: (err) => `Sell transaction failed: ${(err as Error).message}`
+            }).unwrap();
+
             toast.promise(publicClient.waitForTransactionReceipt({ hash: sellTxHash }), {
                 loading: `Selling ${tradeAmount} ${asset?.companyDetails.symbol}... (${formatAddressShort(sellTxHash)})`,
                 success: (receipt) => {
@@ -292,9 +306,10 @@ const AssetDetails: React.FC<AssetDetailsProps> = ({ assetAddress }) => {
                 }
             });
 
-        } catch (e: any) {
+        } catch (e) {
+            const errorMessage = e instanceof Error ? e.message : "Unknown error";
             console.error("Sell transaction error:", e);
-            toast.error(`Sell failed: ${(e as Error).message || "Unknown error"}`);
+            toast.error(`Sell failed: ${errorMessage}`);
             setIsProcessingTx(false);
         }
     };

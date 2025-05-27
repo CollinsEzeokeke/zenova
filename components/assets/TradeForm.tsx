@@ -51,9 +51,7 @@ const TradeForm: React.FC<TradeFormProps> = ({
     buttonIcon: ButtonIcon,
     isProcessing,
     isConnected,
-    handleMaxAmount,
     needsApproval,
-    assetDecimals,
     paymentDecimals
 }) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,26 +68,26 @@ const TradeForm: React.FC<TradeFormProps> = ({
     };
 
     // Improved MAX functionality to handle partial percentages
-    const handlePercentageMax = (percentage: number) => {
-        if (!balance || parseFloat(balance) <= 0) return;
+    // const handlePercentageMax = (percentage: number) => {
+    //     if (!balance || parseFloat(balance) <= 0) return;
 
-        if (action === 'buy') {
-            // For buy, calculate how much asset we can buy with percentage of USDT balance
-            const usdtAmount = parseFloat(balance) * (percentage / 100);
-            if (usdtAmount > 0 && asset.pricingDetails.currentPricePerToken) {
-                const maxAssetAmount = usdtAmount / parseFloat(asset.pricingDetails.currentPricePerToken);
-                // Apply a small discount to account for fees and slippage
-                const discountedAmount = maxAssetAmount * 0.99;
-                setTradeAmount(discountedAmount.toFixed(assetDecimals > 6 ? 6 : assetDecimals));
-            }
-        } else {
-            // For sell, simply use percentage of asset balance
-            const assetAmount = parseFloat(balance) * (percentage / 100);
-            if (assetAmount > 0) {
-                setTradeAmount(assetAmount.toFixed(assetDecimals > 6 ? 6 : assetDecimals));
-            }
-        }
-    };
+    //     if (action === 'buy') {
+    //         // For buy, calculate how much asset we can buy with percentage of USDT balance
+    //         const usdtAmount = parseFloat(balance) * (percentage / 100);
+    //         if (usdtAmount > 0 && asset.pricingDetails.currentPricePerToken) {
+    //             const maxAssetAmount = usdtAmount / parseFloat(asset.pricingDetails.currentPricePerToken);
+    //             // Apply a small discount to account for fees and slippage
+    //             const discountedAmount = maxAssetAmount * 0.99;
+    //             setTradeAmount(discountedAmount.toFixed(assetDecimals > 6 ? 6 : assetDecimals));
+    //         }
+    //     } else {
+    //         // For sell, simply use percentage of asset balance
+    //         const assetAmount = parseFloat(balance) * (percentage / 100);
+    //         if (assetAmount > 0) {
+    //             setTradeAmount(assetAmount.toFixed(assetDecimals > 6 ? 6 : assetDecimals));
+    //         }
+    //     }
+    // };
 
     const insufficientBalance = useMemo(() => {
         if (!balance || !tradeAmount || parseFloat(tradeAmount) <= 0) return false;
@@ -304,7 +302,7 @@ const TradeForm: React.FC<TradeFormProps> = ({
                         USDT Approval Required
                     </p>
                     <p className="text-sm text-gray-400">
-                        Clicking "Buy" will automatically request USDT approval before completing your purchase.
+                        Clicking &quot;Buy&quot; will automatically request USDT approval before completing your purchase.
                     </p>
                 </div>
             )}

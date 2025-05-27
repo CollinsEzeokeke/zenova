@@ -10,7 +10,6 @@ import { useOnboardingStore, PortfolioOnboardingStage } from "@/store/onboarding
 import { Card, CardContent } from "@/components/ui/card";
 import { useUserTokenBalance } from "@/hooks/useUserTokenBalance";
 import { usdtMockConfig } from "@/generated";
-import { publicClient } from "@/src/utils/publicClient"; // For chain ID to get USDT address
 import { Hex } from "viem";
 
 interface PortfolioOnboardingFlowProps {
@@ -58,9 +57,8 @@ const PortfolioOnboardingFlow: React.FC<PortfolioOnboardingFlowProps> = ({ child
         chainId: storedChainId,
     } = useOnboardingStore();
 
-    const { address: wagmiUserAddress, isConnected: wagmiIsConnected, isConnecting: wagmiIsConnecting, connector, chain } = useAccount();
+    const { address: wagmiUserAddress, isConnected: wagmiIsConnected, isConnecting: wagmiIsConnecting, connector } = useAccount();
     const wagmiChainId = useChainId();
-    const previousAddressRef = useRef<string | null | undefined>(null);
     const hasResetCheckFlagRef = useRef(false);
 
     // Fetch user's USDT balance
@@ -103,7 +101,7 @@ const PortfolioOnboardingFlow: React.FC<PortfolioOnboardingFlowProps> = ({ child
                 chainId: wagmiChainId,
             });
         }
-    }, [wagmiUserAddress, wagmiIsConnected, wagmiIsConnecting, connector, wagmiChainId, setUserAccount, storedUserAddress, storedIsConnected, storedIsConnecting]);
+    }, [wagmiUserAddress, wagmiIsConnected, wagmiIsConnecting, connector, wagmiChainId, setUserAccount, storedUserAddress, storedIsConnected, storedIsConnecting, storedChainId]);
 
     useEffect(() => {
         if (storedIsConnecting) {

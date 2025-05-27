@@ -3,6 +3,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { motion } from "framer-motion";
 import { Wallet, AlertTriangle, CheckCircle, LogOut, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export const ZenovaCustomConnectButton = () => {
     return (
@@ -87,9 +88,11 @@ export const ZenovaCustomConnectButton = () => {
                                         title={chain.name ?? "Current network"}
                                     >
                                         {chain.hasIcon && chain.iconUrl ? (
-                                            <img
+                                            <Image
                                                 alt={chain.name ?? "Chain icon"}
                                                 src={chain.iconUrl}
+                                                width={16}
+                                                height={16}
                                                 className={`${iconSize} rounded-full mr-1 sm:mr-1.5 flex-shrink-0`}
                                                 style={{ background: chain.iconBackground }}
                                             />

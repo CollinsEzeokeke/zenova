@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useOnboardingStore } from "@/store/onboardingStore";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import AnimatedButton from "@/components/ui/AnimatedButton";
-import { Layers, AlertTriangle, CheckCircle, ExternalLink, ArrowRight, Loader2 } from "lucide-react";
+import { Layers, AlertTriangle, CheckCircle, ExternalLink, Loader2 } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { formatEther } from "viem";
 
@@ -189,7 +189,7 @@ const GetRwaPortfolioStep: React.FC<GetRwaPortfolioStepProps> = ({ onRwaAcquired
                         Acquire Testnet RWA
                     </h2>
                     <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-                        To interact with Zenova's platform features, you need native RWA tokens for gas fees on the testnet. Your current RWA balance is being checked.
+                        To interact with Zenova&apos;s platform features, you need native RWA tokens for gas fees on the testnet. Your current RWA balance is being checked.
                     </p>
                 </motion.div>
 
@@ -223,7 +223,8 @@ const GetRwaPortfolioStep: React.FC<GetRwaPortfolioStepProps> = ({ onRwaAcquired
                                     <AlertTriangle className="w-10 h-10 text-red-400 mb-3" />
                                     <p className="text-red-300 font-semibold">Error Checking Balance</p>
                                     <p className="text-red-400 text-sm max-w-xs">
-                                        {(balanceError as any)?.shortMessage || balanceError.message}
+                                        
+                                        {balanceError instanceof Error && 'shortMessage' in balanceError ? (balanceError as any).shortMessage : balanceError?.message || 'Unknown error'}
                                     </p>
                                     <AnimatedButton
                                         onClick={() => refetchBalance()}
@@ -248,20 +249,15 @@ const GetRwaPortfolioStep: React.FC<GetRwaPortfolioStepProps> = ({ onRwaAcquired
                                         href={RWA_FAUCET_URL}
                                         external
                                         variant="primary"
-                                        size="lg"
-                                        className="group"
+                                        className="w-full md:w-auto group"
                                     >
-                                        Go to RWA Faucet
-                                        <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                        <span className="flex items-center justify-center">
+                                            Visit RWA Faucet
+                                            <ExternalLink className="w-4 h-4 ml-2 transition-transform duration-200 ease-in-out group-hover:translate-x-0.5" />
+                                        </span>
                                     </AnimatedButton>
-                                    <p className="text-xs text-gray-500 pt-2">
-                                        After acquiring RWA, this step will automatically proceed.
-                                        {!localHasRwa && (
-                                            <>
-                                                <br />Next check in progress...
-                                                {isBalanceFetching && <Loader2 className="w-3 h-3 inline-block ml-1 animate-spin" />}
-                                            </>
-                                        )}
+                                    <p className="text-xs text-gray-500 pt-3">
+                                        It&apos;s important to have RWA tokens to cover gas fees for transactions on the Zenova platform.
                                     </p>
                                 </div>
                             )}

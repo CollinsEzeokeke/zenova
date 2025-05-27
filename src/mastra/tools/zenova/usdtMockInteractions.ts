@@ -2,7 +2,7 @@ import { usdtMockConfig } from "@/generated";
 import { Hex, getAddress, parseUnits, BaseError } from "viem";
 import {
     ContractErrorResponse,
-    TransactionSuccessResponse
+    // TransactionSuccessResponse // Removed as unused
 } from "./zenovaFormattedTypes";
 import {
     formatUsdtAmount,
@@ -24,37 +24,6 @@ function isValidAddress(address: string): boolean {
 }
 
 // --- USDTMock Getter Functions ---
-
-export async function getUsdtMaxMintPerTransactionConstant(): Promise<string | ContractErrorResponse> {
-    try {
-        const data = await publicClient.readContract({
-            address: USDT_ADDRESS,
-            abi: USDT_ABI,
-            functionName: "MAX_MINT_PER_TRANSACTION", // Reading the public constant
-        });
-        return formatUsdtAmount(data);
-    } catch (err: unknown) {
-        const errorMessage = err instanceof BaseError ? err.shortMessage : (err instanceof Error ? err.message : String(err));
-        console.error("Error in getUsdtMaxMintPerTransactionConstant:", errorMessage);
-        return { error: `An unexpected error occurred: ${errorMessage}` };
-    }
-}
-
-export async function getUsdtMaxMintPerTransactionFunction(): Promise<string | ContractErrorResponse> {
-    try {
-        const data = await publicClient.readContract({
-            address: USDT_ADDRESS,
-            abi: USDT_ABI,
-            functionName: "getMaxMintPerTransaction",
-        });
-        return formatUsdtAmount(data);
-    } catch (err: unknown) {
-        const errorMessage = err instanceof BaseError ? err.shortMessage : (err instanceof Error ? err.message : String(err));
-        console.error("Error in getUsdtMaxMintPerTransactionFunction:", errorMessage);
-        return { error: `An unexpected error occurred: ${errorMessage}` };
-    }
-}
-
 export async function getUsdtTotalSupply(): Promise<string | ContractErrorResponse> {
     try {
         const data = await publicClient.readContract({

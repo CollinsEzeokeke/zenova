@@ -17,7 +17,26 @@ import { Hex } from 'viem';
 
 // Minimal valid RuntimeContext for read-only tools on the server
 // This can be expanded if tools need more from runtimeContext server-side
-const mockRuntimeContext: any = {
+interface MockRuntimeContext {
+    registry: Map<string, unknown>;
+    set: (key: string, value: unknown) => void;
+    get: (key: string) => unknown | undefined;
+    has: (key: string) => boolean;
+    delete: (key: string) => boolean;
+    clear: () => void;
+    agentId: string;
+    sessionId: string;
+    userId: string;
+    conversationId: string;
+    toolCallId: string;
+    keys?: () => IterableIterator<string>;
+    values?: () => IterableIterator<unknown>;
+    entries?: () => IterableIterator<[string, unknown]>;
+    size?: number;
+    forEach?: (callbackfn: (value: unknown, key: string, map: Map<string, unknown>) => void, thisArg?: unknown) => void;
+}
+
+const mockRuntimeContext: MockRuntimeContext = {
     registry: new Map(),
     set: () => {},
     get: () => undefined,
@@ -45,7 +64,7 @@ export async function GET(req: NextRequest) {
 
     try {
         console.log("[App API] Fetching platform snapshot...");
-        const snapshotResponse = await getPlatformSnapshotTool.execute({ runtimeContext: mockRuntimeContext, context: {} });
+        const snapshotResponse = await getPlatformSnapshotTool.execute({ runtimeContext: mockRuntimeContext as any, context: {} });
         console.log("[App API] Snapshot response:", snapshotResponse);
         if (snapshotResponse && typeof snapshotResponse === 'object' && 'error' in snapshotResponse) {
             throw new Error(`Failed to fetch platform snapshot: ${(snapshotResponse as ContractErrorResponse).error}`);
@@ -53,7 +72,7 @@ export async function GET(req: NextRequest) {
         const snapshot = snapshotResponse as FormattedPlatformSnapshot;
 
         console.log("[App API] Fetching asset addresses...");
-        const assetAddressesResponse = await getAllAssetsFactoryTool.execute({ runtimeContext: mockRuntimeContext, context: {} });
+        const assetAddressesResponse = await getAllAssetsFactoryTool.execute({ runtimeContext: mockRuntimeContext as any, context: {} });
         console.log("[App API] Asset addresses response:", assetAddressesResponse);
         if (assetAddressesResponse && typeof assetAddressesResponse === 'object' && 'error' in assetAddressesResponse) {
             throw new Error(`Failed to fetch asset addresses: ${(assetAddressesResponse as ContractErrorResponse).error}`);
@@ -65,7 +84,7 @@ export async function GET(req: NextRequest) {
 
         if (assetAddresses.length > 0) {
             console.log(`[App API] Fetching analytics for ${assetAddresses.length} assets...`);
-            const analyticsResponse = await getMultipleAssetAnalyticsTool.execute({ runtimeContext: mockRuntimeContext, context: { assetAddresses } });
+            const analyticsResponse = await getMultipleAssetAnalyticsTool.execute({ runtimeContext: mockRuntimeContext as any, context: { assetAddresses } });
             console.log("[App API] Multiple asset analytics response:", analyticsResponse);
             if (analyticsResponse && typeof analyticsResponse === 'object' && 'error' in analyticsResponse) {
                 throw new Error(`Failed to fetch multiple asset analytics: ${(analyticsResponse as ContractErrorResponse).error}`);
@@ -148,9 +167,11 @@ export async function GET(req: NextRequest) {
         console.log("[App API] Successfully processed data. Sending response:", responseData);
         return NextResponse.json(responseData, { status: 200 });
 
-    } catch (error: any) {
-        console.error("[App API Error /api/platform-analytics]", error.message, error.stack);
-        return NextResponse.json({ error: error.message || 'Internal server error' }, { status: 500 });
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Internal server error';
+        const errorStack = error instanceof Error ? error.stack : undefined;
+        console.error("[App API Error /api/platform-analytics]", errorMessage, errorStack);
+        return NextResponse.json({ error: errorMessage || 'Internal server error' }, { status: 500 });
     }
 }
 

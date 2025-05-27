@@ -19,7 +19,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
 
 // Format number with compact notation (1K, 1M, 1B, 1T)
 function formatCompactCurrency(value: number): string {
@@ -100,7 +99,7 @@ export default function UsdtBalance() {
                     functionName: "mintTestTokens",
                     args: [userAddress, usdtToMint],
                 }, {
-                    onSuccess: (receipt) => {
+                    onSuccess: () => {
                         queryClient.invalidateQueries();
                     },
                     onError: (err) => {

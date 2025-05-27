@@ -11,7 +11,7 @@ import { Wallet, Loader2 } from 'lucide-react';
 
 const OnboardingContent: React.FC = () => {
   const { currentStage } = useOnboarding();
-  const { address, isConnected, isConnecting } = useAccount();
+  const { isConnected, isConnecting } = useAccount();
   const { setFocusElement } = useUIFocus();
 
   useEffect(() => {

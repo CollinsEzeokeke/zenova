@@ -6,12 +6,11 @@ import { TrendingUp, TrendingDown, Wallet, DollarSign } from 'lucide-react';
 import { useZenovaPortfolio } from "@/hooks/useZenovaPortfolio"
 import { useAccount } from "wagmi";
 import { AlertTriangle, Loader2 } from "lucide-react";
-import { formatAddressShort } from "@/src/mastra/tools/zenova/formatters"; // For displaying asset addresses if needed
 import { FormattedUserAssetInfo, FormattedUserPortfolioDetails } from "@/src/mastra/tools/zenova/zenovaFormattedTypes";
 import PortfolioHoldingRow from "./PortfolioHoldingRow"; // Import the new component
 
 export default function Portfolio() {
-  const { address: userAddress, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const { 
     data: rawPortfolioData, // data from useQuery, can be FormattedUserPortfolioDetails | undefined
     isLoading, 
@@ -95,7 +94,7 @@ export default function Portfolio() {
   
   // Ensure totalPortfolioValue is declared once, after potential early returns and after renderedRows is defined.
   const totalPortfolioValue = parseFloat(portfolioData?.totalPortfolioValue?.replace(/[^\d.-]/g, '') || "0");
-  const holdings: FormattedUserAssetInfo[] = portfolioData?.assetHoldings || [];
+  // const holdings: FormattedUserAssetInfo[] = portfolioData?.assetHoldings || [];
 
   return (
     <div className="relative overflow-hidden py-20">

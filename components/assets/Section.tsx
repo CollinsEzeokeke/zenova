@@ -25,7 +25,13 @@ const Section: React.FC<SectionProps> = ({ title, icon: Icon, children }) => (
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {React.Children.map(children, (child, index) => {
-                const isFullWidth = React.isValidElement(child) && (child.props as any).fullWidth;
+                // Define an interface for child props to avoid `any`
+                interface ChildProps {
+                    fullWidth?: boolean;
+                    // Add other potential props if known, otherwise keep it minimal
+                }
+                const childProps = React.isValidElement(child) ? child.props as ChildProps : {};
+                const isFullWidth = childProps.fullWidth;
                 return (
                     <div key={index} className={isFullWidth ? "md:col-span-2" : ""}>
                         {child}

@@ -2,11 +2,12 @@
 
 import { usdtMockConfig } from "@/generated";
 import { toast } from "sonner";
-import { parseUnits, formatUnits, erc20Abi, Hex } from "viem";
+import { formatUnits, erc20Abi, Hex } from "viem";
 import { useWriteContract, usePublicClient, useSwitchChain } from "wagmi";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { AlertTriangle, CheckCircle, Cog, Box, Coins, TrendingUp, DollarSign, Loader2 } from "lucide-react";
+import AnimatedButton from "@/components/ui/AnimatedButton";
+import { AlertTriangle, CheckCircle, Coins, DollarSign, Loader2 } from "lucide-react";
 import { useOnboardingStore } from "@/store/onboardingStore";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { USDT_TO_MINT } from "@/src/utils/constants";
@@ -24,9 +25,9 @@ const MintUsdtPortfolioStep: React.FC<MintUsdtPortfolioStepProps> = ({ onMinting
         chainId: storedChainId
     } = useOnboardingStore();
 
-    const { writeContractAsync: mintUsdt, isPending: isSendingMintTx, error: mintError } = useWriteContract();
+    const { writeContractAsync: mintUsdt, isPending: isSendingMintTx } = useWriteContract();
     const publicClient = usePublicClient();
-    const { switchChainAsync, isPending: isSwitchingChain, error: switchChainError } = useSwitchChain();
+    const { switchChainAsync, isPending: isSwitchingChain } = useSwitchChain();
 
     const [hasLocallyMintedAndVerified, setHasLocallyMintedAndVerified] = useState(false);
     const [isConfirmingMintTx, setIsConfirmingMintTx] = useState(false);
@@ -45,9 +46,10 @@ const MintUsdtPortfolioStep: React.FC<MintUsdtPortfolioStepProps> = ({ onMinting
             await toast.promise(switchChainAsync({ chainId: SUPPORTED_CHAIN_ID_FOR_USDT }), {
                 loading: `Switching to network ${SUPPORTED_CHAIN_ID_FOR_USDT}...`,
                 success: "Network switched successfully!",
-                error: (err) => `Failed to switch network: ${(err as any)?.shortMessage || err.message}`,
+                error: (err) => `Failed to switch network: ${err instanceof Error && 'shortMessage' in err ? (err as any).shortMessage : err.message}`,
             });
-        } catch (e) {
+        } catch (_e) {
+            console.error("Error switching network:", _e);
             // Error already handled by toast.promise
         }
     };
@@ -110,7 +112,7 @@ const MintUsdtPortfolioStep: React.FC<MintUsdtPortfolioStepProps> = ({ onMinting
             }), {
                 loading: "Sending USDT Minting Transaction...",
                 success: (hash) => `USDT Minting Transaction Sent! Hash: ${hash.substring(0, 10)}...`,
-                error: (err) => `Failed to send mint transaction: ${(err as any)?.shortMessage || err.message}`,
+                error: (err) => `Failed to send mint transaction: ${err instanceof Error && 'shortMessage' in err ? (err as any).shortMessage : err.message}`,
             }).unwrap();
 
             if (txHash && publicClient) {
@@ -148,7 +150,7 @@ const MintUsdtPortfolioStep: React.FC<MintUsdtPortfolioStepProps> = ({ onMinting
         }
     }, [hasLocallyMintedAndVerified, onMintingComplete]);
 
-    const isProcessing = isSendingMintTx || isConfirmingMintTx || isVerifyingBalance || isSwitchingChain;
+    // const isProcessing = isSendingMintTx || isConfirmingMintTx || isVerifyingBalance || isSwitchingChain;
 
     if (!userAddress) {
         return (
@@ -242,109 +244,68 @@ const MintUsdtPortfolioStep: React.FC<MintUsdtPortfolioStepProps> = ({ onMinting
                     Get Test USDT
                 </h2>
                 <p className="text-gray-400 text-lg max-w-lg mx-auto leading-relaxed">
-                    Obtain test USDT to start trading tokenized company shares on Zenova's autonomous market platform.
-                    You'll receive <span className="text-metamesh-yellow font-semibold">{formatUnits(USDT_TO_MINT, 6).toLocaleString()}</span> test USDT.
+                    Obtain test USDT to start trading tokenized company shares on Zenova&apos;s autonomous market platform.
+                    You&apos;ll receive <span className="text-metamesh-yellow font-semibold">{formatUnits(USDT_TO_MINT, 6).toLocaleString()}</span> test USDT.
                 </p>
             </motion.div>
 
             {!isCorrectChain && (
+                <Card className="w-full max-w-lg glass-effect border-orange-500/50 shadow-lg">
+                    <CardHeader>
+                        <CardTitle className="flex items-center space-x-2 text-orange-300">
+                            <AlertTriangle className="w-5 h-5" />
+                            <span>Incorrect Network Detected</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <p className="text-gray-300">
+                            Your wallet is connected to network ID <span className="font-bold text-orange-400">{storedChainId ?? 'Unknown'}</span>, but USDT minting is on network ID <span className="font-bold text-green-400">{SUPPORTED_CHAIN_ID_FOR_USDT}</span>.
+                        </p>
+                        <AnimatedButton
+                            onClick={handleSwitchChain}
+                            variant="secondary"
+                            size="lg"
+                            className="w-full border-orange-400 text-orange-400 hover:bg-orange-400/10 disabled:opacity-60"
+                            // disabled={isProcessing}
+                        >
+                            {isSwitchingChain ? (
+                                <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Switching...</>
+                            ) : (
+                                "Switch to Correct Network"
+                            )}
+                        </AnimatedButton>
+                    </CardContent>
+                </Card>
+            )}
+
+            {isCorrectChain && (
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="w-full max-w-lg"
+                    className="w-full max-w-xs"
                 >
-                    <Card className="bg-metamesh-yellow/5 border-metamesh-yellow/30 backdrop-blur-sm">
-                        <CardHeader className="pb-3">
-                            <CardTitle className="flex items-center space-x-2 text-metamesh-yellow text-lg">
-                                <AlertTriangle className="w-5 h-5" />
-                                <span>Network Mismatch</span>
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="pt-0">
-                            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                                Your wallet is connected to network ID <span className="text-metamesh-yellow font-medium">{storedChainId ?? 'Unknown'}</span>,
-                                but USDT minting requires network ID <span className="text-metamesh-yellow font-medium">{SUPPORTED_CHAIN_ID_FOR_USDT}</span>.
-                            </p>
-                            <motion.button
-                                onClick={handleSwitchChain}
-                                disabled={isProcessing || !switchChainAsync} // Use generic isProcessing
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="w-full px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300 
-                                           bg-metamesh-yellow text-metamesh-dark hover:bg-metamesh-yellow/90 
-                                           disabled:bg-metamesh-gray disabled:text-gray-400 disabled:cursor-not-allowed 
-                                           flex items-center justify-center shadow-lg hover:shadow-metamesh-yellow/20"
-                            >
-                                {isSwitchingChain ? (
-                                    <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Switching Network...</>
-                                ) : (
-                                    <><TrendingUp className="w-4 h-4 mr-2" /> Switch to Network {SUPPORTED_CHAIN_ID_FOR_USDT}</>
-                                )}
-                            </motion.button>
-                            {switchChainError && (
-                                <p className="text-red-400 text-xs mt-2 text-center">
-                                    Error: {(switchChainError as any)?.shortMessage || switchChainError.message}
-                                </p>
-                            )}
-                        </CardContent>
-                    </Card>
+                    <AnimatedButton
+                        onClick={handleMintUsdt}
+                        variant="primary"
+                        size="lg"
+                        className="w-full font-bold tracking-wider shadow-lg hover:shadow-xl focus:ring-metamesh-yellow/50 disabled:opacity-60"
+                        // disabled={isProcessing}                        
+                        // pulse={!isProcessing}
+                    >
+                        {buttonContent}
+                    </AnimatedButton>
                 </motion.div>
             )}
-
-            <motion.div
+            
+            <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="w-full max-w-sm"
+                className="text-xs text-gray-500 max-w-md pt-4 leading-relaxed"
             >
-                <motion.button
-                    onClick={handleMintUsdt}
-                    disabled={isProcessing || !isCorrectChain || hasLocallyMintedAndVerified}
-                    whileHover={{ scale: !isProcessing && isCorrectChain ? 1.02 : 1 }}
-                    whileTap={{ scale: !isProcessing && isCorrectChain ? 0.98 : 1 }}
-                    className="w-full px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 
-                               bg-gradient-to-r from-metamesh-yellow to-metamesh-yellow/90 text-metamesh-dark 
-                               hover:shadow-lg hover:shadow-metamesh-yellow/30
-                               disabled:bg-metamesh-gray disabled:text-gray-400 disabled:cursor-not-allowed 
-                               disabled:shadow-none flex items-center justify-center"
-                >
-                    {buttonContent}
-                </motion.button>
-
-                {mintError && !isSendingMintTx && (
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-red-400 text-sm mt-3 text-center"
-                    >
-                        Error: {(mintError as any)?.shortMessage || mintError.message}
-                    </motion.p>
-                )}
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="w-full max-w-lg"
-            >
-                <Card className="bg-metamesh-dark-card/30 border-metamesh-gray/20 backdrop-blur-sm">
-                    <CardContent className="p-4">
-                        <div className="flex items-start space-x-3">
-                            <Box className="w-5 h-5 text-metamesh-yellow mt-0.5 flex-shrink-0" />
-                            <div className="text-left">
-                                <h4 className="font-semibold text-white text-sm mb-1">
-                                    About Test USDT
-                                </h4>
-                                <p className="text-xs text-gray-400 leading-relaxed">
-                                    This uses the mock USDT contract configured for chain {SUPPORTED_CHAIN_ID_FOR_USDT}.
-                                    Test tokens have no real value and are used for demonstration purposes on Zenova's platform.
-                                </p>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
+                <p>Test USDT is for demonstration purposes on the Zenova testnet only and holds no real-world value. Minting may take a few moments to confirm on the blockchain.</p>
+                <p className="mt-2">If you don&apos;t see your balance update immediately, please wait a minute and refresh your portfolio or check your wallet directly.</p>
             </motion.div>
         </div>
     );

@@ -1,4 +1,3 @@
-import Layout from "@/components/layout/Layout";
 import AssetDetails from "@/components/assets/AssetDetails";
 import PortfolioOnboardingFlow from "@/components/onboarding/PortfolioOnboardingFlow";
 
