@@ -34,7 +34,7 @@ const Loading = () => {
   });
 
   const particleVariants = {
-    initial: (i: number) => ({
+    initial: () => ({
       x: Math.random() * 100 - 50 + "vw",
       y: Math.random() * 100 - 50 + "vh",
       opacity: 0,
