@@ -10,7 +10,7 @@ const nextConfig = {
       },
     ],
   },
-  serverExternalPackages: ['punycode', '@mastra/*'],
+  serverExternalPackages: [ '@mastra/*'],
 };
 
 module.exports = nextConfig; 
