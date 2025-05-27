@@ -166,11 +166,11 @@ export const getMultipleAssetAnalyticsTool = createTool({
     },
 });
 
-// --- Factory Write Tools ---
+// --- Factory Write Tools (Server-Side ONLY) ---
 
 export const submitCompanyValuationFactoryTool = createTool({
-    id: "zenovaFactory_submitCompanyValuation",
-    description: "Allows an AI to submit a company's valuation and suggested initial token price to the factory.",
+    id: "zenovaFactory_submitCompanyValuation_server", // Renamed ID for clarity
+    description: "Allows an AI to submit a company's valuation and suggested initial token price to the factory. (SERVER ONLY)",
     inputSchema: SubmitCompanyValuationInputSchema,
     outputSchema: z.union([TransactionSuccessResponseSchema, ToolErrorResponseSchema]),
     execute: async ({ context }) => {
@@ -183,8 +183,8 @@ export const submitCompanyValuationFactoryTool = createTool({
 });
 
 export const createZenovaAssetFactoryTool = createTool({
-    id: "zenovaFactory_createZenovaAsset",
-    description: "Creates a new ZenovaAsset (tokenized shares) for a company with a submitted valuation, via the factory. Called by AI.",
+    id: "zenovaFactory_createZenovaAsset_server", // Renamed ID for clarity
+    description: "Creates a new ZenovaAsset (tokenized shares) for a company with a submitted valuation, via the factory. Called by AI. (SERVER ONLY)",
     inputSchema: CreateZenovaAssetInputSchema,
     outputSchema: z.union([AssetCreationSuccessResponseSchema, ToolErrorResponseSchema]),
     execute: async ({ context }) => {

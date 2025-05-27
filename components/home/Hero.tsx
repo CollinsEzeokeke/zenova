@@ -267,8 +267,8 @@ const Hero = () => {
             <AnimatedButton to="/assets" size="lg">
               Explore Companies
             </AnimatedButton>
-            <AnimatedButton to="/modules" variant="outline" size="lg">
-              AI Valuation
+            <AnimatedButton to="/onboarding" variant="outline" size="lg">
+              Join Zenova 🚀
             </AnimatedButton>
           </motion.div>
           

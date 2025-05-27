@@ -7,6 +7,8 @@ import { TanstackProviders } from "./tanstack-providers";
 import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+import { UIFocusProvider } from "@/contexts/UIFocusContext";
+
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={config}>
@@ -27,7 +29,9 @@ export default function Provider({ children }: { children: React.ReactNode }) {
               overlayBlur: "small",
             })}
           >
-            {children}
+            <UIFocusProvider>
+              {children}
+            </UIFocusProvider>
           </RainbowKitProvider>
         </TanstackProviders>
       </ThemeProvider>

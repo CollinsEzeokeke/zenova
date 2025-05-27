@@ -1,4 +1,4 @@
-import { useQuery, QueryKey } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useAccount } from "wagmi";
 import { getUserPortfolioDetails } from "@/src/mastra/tools/zenova/zenovaBlockchainInteractions";
 import { FormattedUserPortfolioDetails, ContractErrorResponse } from "@/src/mastra/tools/zenova/zenovaFormattedTypes";

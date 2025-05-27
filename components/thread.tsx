@@ -23,10 +23,10 @@ import { Button } from "@/components/ui/button";
 import { MarkdownText } from "@/components/markdown-text";
 import { TooltipIconButton } from "@/components/tooltip-icon-button";
 
-export const Thread: FC = () => {
+export const Thread: FC<{ className?: string }> = ({ className }) => {
   return (
     <ThreadPrimitive.Root
-      className="bg-background box-border flex h-full flex-col overflow-hidden"
+      className={cn("bg-background box-border flex h-full flex-col overflow-hidden", className)}
       style={{
         ["--thread-max-width" as string]: "42rem",
       }}

@@ -141,3 +141,25 @@ export interface TransactionSuccessResponse {
     readonly transactionHash: Hex;
     readonly message?: string;
 } 
+
+// Interface for the data structure returned by the platform analytics API/hook
+export interface PlatformAnalyticsData {
+    platformMetrics: {
+        totalAssets: number;
+        totalMarketCap: number;
+        totalVolume: number; // All-time total volume
+        activeTraders: number; // Mocked (0)
+        totalTransactions: number;
+        avgAssetPrice: number;
+    };
+    volumeChartData: Array<{ name: string; volume: number }>;
+    priceChartData: Array<{ name: string; avgPrice: number }>;
+    sectorDistributionData: Array<{ name: string; value: number; color: string }>; // Mocked
+    additionalPlatformInsights: {
+        totalTransactionsFormatted: string;
+        averageAssetPriceFormatted: string;
+        platformGrowthFormatted: string; // Mocked ("N/A")
+        aiEvaluationsFormatted: string; // Mocked ("N/A")
+        successRateFormatted: string; // Mocked ("N/A")
+    };
+} 

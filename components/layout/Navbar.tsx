@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { ZenovaCustomConnectButton } from '@/components/ui/ZenovaCustomConnectButton';
 import UsdtBalance from '@/components/layout/UsdtBalance';
+import { useUIFocus, UIFocusTarget } from '@/contexts/UIFocusContext';
 
 const navLinks = [
   { text: "Home", path: "/" },
@@ -16,10 +17,22 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { focusElement, setFocusElement } = useUIFocus();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  const isConnectButtonFocused = focusElement === UIFocusTarget.NAVBAR_CONNECT_BUTTON;
+
+  useEffect(() => {
+    if (isConnectButtonFocused) {
+      const timer = setTimeout(() => {
+        setFocusElement(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isConnectButtonFocused, setFocusElement]);
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 glass-effect border-b border-metamesh-gray">
@@ -69,7 +82,9 @@ export default function Navbar() {
               ))}
 
               <UsdtBalance />
-              <ZenovaCustomConnectButton />
+              <div className={`${isConnectButtonFocused ? 'animate-pulse-strong' : ''} rounded-md`}>
+                <ZenovaCustomConnectButton />
+              </div>
             </div>
           </div>
 
@@ -112,7 +127,9 @@ export default function Navbar() {
 
             <div className="mt-2 space-y-2">
               <UsdtBalance />
-              <ZenovaCustomConnectButton />
+              <div className={`${isConnectButtonFocused ? 'animate-pulse-strong' : ''} rounded-md`}>
+                <ZenovaCustomConnectButton />
+              </div>
             </div>
           </div>
         </motion.div>

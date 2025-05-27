@@ -17,43 +17,60 @@ import {
   Cell,
 } from "recharts";
 import { TrendingUp, DollarSign, Users, Building } from "lucide-react";
+import { usePlatformAnalytics } from "@/hooks/usePlatformAnalytics";
 
 export default function PlatformStats() {
-  // Mock data for charts
-  const volumeData = [
-    { name: "Jan", volume: 4000000 },
-    { name: "Feb", volume: 3000000 },
-    { name: "Mar", volume: 5000000 },
-    { name: "Apr", volume: 4500000 },
-    { name: "May", volume: 6000000 },
-    { name: "Jun", volume: 7200000 },
-  ];
+  // Use the new hook
+  const { data: analyticsData, isLoading, error } = usePlatformAnalytics();
 
-  const priceData = [
-    { name: "Jan", avgPrice: 45 },
-    { name: "Feb", avgPrice: 52 },
-    { name: "Mar", avgPrice: 48 },
-    { name: "Apr", avgPrice: 61 },
-    { name: "May", avgPrice: 55 },
-    { name: "Jun", avgPrice: 67 },
-  ];
+  // Handle loading and error states
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+            Loading Platform Analytics...
+          </h1>
+          {/* You can add a skeleton loader here if desired */}
+        </div>
+      </Layout>
+    );
+  }
 
-  const sectorData = [
-    { name: "Technology", value: 35, color: "#F4A261" },
-    { name: "Healthcare", value: 25, color: "#E76F51" },
-    { name: "Finance", value: 20, color: "#2A9D8F" },
-    { name: "Energy", value: 12, color: "#264653" },
-    { name: "Other", value: 8, color: "#E9C46A" },
-  ];
+  if (error) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-red-500">
+            Error Loading Platform Analytics
+          </h1>
+          <p className="text-xl text-gray-400">{error.message}</p>
+        </div>
+      </Layout>
+    );
+  }
 
-  const platformMetrics = {
-    totalAssets: 47,
-    totalMarketCap: 234500000,
-    totalVolume24h: 45200000,
-    activeTraders: 12400,
-    totalTransactions: 89650,
-    avgAssetPrice: 156.78,
-  };
+  // If data is not yet available (should be covered by isLoading, but as a fallback)
+  if (!analyticsData) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+            No analytics data available.
+          </h1>
+        </div>
+      </Layout>
+    );
+  }
+
+  // Destructure data from the hook
+  const {
+    platformMetrics,
+    volumeChartData,
+    priceChartData,
+    sectorDistributionData,
+    additionalPlatformInsights,
+  } = analyticsData;
 
   return (
     <Layout>
@@ -114,16 +131,16 @@ export default function PlatformStats() {
               },
               {
                 icon: TrendingUp,
-                label: "24h Volume",
-                value: platformMetrics.totalVolume24h / 1000000,
+                label: "Total Volume",
+                value: platformMetrics.totalVolume / 1000000,
                 suffix: "M",
                 color: "text-blue-400",
               },
               {
                 icon: Users,
                 label: "Active Traders",
-                value: platformMetrics.activeTraders / 1000,
-                suffix: "K",
+                value: platformMetrics.activeTraders,
+                suffix: "",
                 color: "text-purple-400",
               },
             ].map((metric, index) => (
@@ -161,7 +178,7 @@ export default function PlatformStats() {
                 Monthly Trading Volume
               </h3>
               <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={volumeData}>
+                <BarChart data={volumeChartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                   <XAxis dataKey="name" stroke="#9CA3AF" />
                   <YAxis stroke="#9CA3AF" />
@@ -188,7 +205,7 @@ export default function PlatformStats() {
                 Average Asset Price Trend
               </h3>
               <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={priceData}>
+                <LineChart data={priceChartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                   <XAxis dataKey="name" stroke="#9CA3AF" />
                   <YAxis stroke="#9CA3AF" />
@@ -225,7 +242,7 @@ export default function PlatformStats() {
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
-                    data={sectorData}
+                    data={sectorDistributionData}
                     cx="50%"
                     cy="50%"
                     outerRadius={100}
@@ -235,7 +252,7 @@ export default function PlatformStats() {
                       `${name} ${(percent * 100).toFixed(0)}%`
                     }
                   >
-                    {sectorData.map((entry, index) => (
+                    {sectorDistributionData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
@@ -258,26 +275,32 @@ export default function PlatformStats() {
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">Total Transactions</span>
                   <span className="text-white font-semibold">
-                    {platformMetrics.totalTransactions.toLocaleString()}
+                    {additionalPlatformInsights.totalTransactionsFormatted}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">Average Asset Price</span>
                   <span className="text-white font-semibold">
-                    ${platformMetrics.avgAssetPrice}
+                    {additionalPlatformInsights.averageAssetPriceFormatted}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">Platform Growth</span>
-                  <span className="text-green-400 font-semibold">+23.4%</span>
+                  <span className="text-green-400 font-semibold">
+                    {additionalPlatformInsights.platformGrowthFormatted}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">AI Evaluations</span>
-                  <span className="text-white font-semibold">47 Completed</span>
+                  <span className="text-white font-semibold">
+                    {additionalPlatformInsights.aiEvaluationsFormatted}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">Success Rate</span>
-                  <span className="text-green-400 font-semibold">98.7%</span>
+                  <span className="text-green-400 font-semibold">
+                    {additionalPlatformInsights.successRateFormatted}
+                  </span>
                 </div>
               </div>
             </motion.div>
